@@ -47,17 +47,20 @@ namespace MarketplaceWebService.Model
         {
             StringBuilder sb = new StringBuilder();
 
-            // Pick the "Description" attribute off the specified enum value.  This will throw an exception
-            // if the attribute is not present or the enum value is not valid.
-            System.ComponentModel.DescriptionAttribute descAttribute = (System.ComponentModel.DescriptionAttribute)
-                typeof(MediaType).GetField(_contentType.ToString(), BindingFlags.Static | BindingFlags.GetField | BindingFlags.Public)
-                .GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute), false)[0];
-            sb.Append(descAttribute.Description);
-            foreach (IContentTypeParameter param in _parameters)
-            {
-                sb.Append(";" + param.ToString());
-            }
-            return sb.ToString();
+			// Pick the "Description" attribute off the specified enum value.  This will throw an exception
+			// if the attribute is not present or the enum value is not valid.
+			var descAttributes = typeof(MediaType).GetField(_contentType.ToString(), BindingFlags.Static | BindingFlags.GetField | BindingFlags.Public)
+				.GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute), false);
+			foreach (System.ComponentModel.DescriptionAttribute descAttribute in descAttributes)
+			{
+				sb.Append(descAttribute.Description);
+				foreach (IContentTypeParameter param in _parameters)
+				{
+					sb.Append(";" + param.ToString());
+				}
+				return sb.ToString();
+			}
+			return string.Empty;
         }
     }
 }

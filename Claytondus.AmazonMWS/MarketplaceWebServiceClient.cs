@@ -30,7 +30,7 @@ using MarketplaceWebService;
 using MarketplaceWebService.Attributes;
 
 using System.Collections.Specialized;
-
+using System.Threading.Tasks;
 
 namespace MarketplaceWebService
 {
@@ -149,9 +149,9 @@ namespace MarketplaceWebService
         /// streaming fashion.
         /// 
         /// </remarks>
-        public GetReportResponse GetReport(GetReportRequest request)
+        public async Task<GetReportResponse> GetReport(GetReportRequest request)
         {
-            return Invoke<GetReportResponse, GetReportRequest>(ConvertGetReport(request), request);
+            return await Invoke<GetReportResponse, GetReportRequest>(ConvertGetReport(request), request);
         }
 
         
@@ -164,9 +164,9 @@ namespace MarketplaceWebService
         /// returns the number of report schedules
         /// 
         /// </remarks>
-        public GetReportScheduleCountResponse GetReportScheduleCount(GetReportScheduleCountRequest request)
+        public async Task<GetReportScheduleCountResponse> GetReportScheduleCount(GetReportScheduleCountRequest request)
         {
-            return Invoke<GetReportScheduleCountResponse>(ConvertGetReportScheduleCount(request));
+            return await Invoke<GetReportScheduleCountResponse>(ConvertGetReportScheduleCount(request));
         }
 
         
@@ -179,9 +179,9 @@ namespace MarketplaceWebService
         /// retrieve the next batch of list items and if there are more items to retrieve
         /// 
         /// </remarks>
-        public GetReportRequestListByNextTokenResponse GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
+        public async Task<GetReportRequestListByNextTokenResponse> GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
         {
-            return Invoke<GetReportRequestListByNextTokenResponse>(ConvertGetReportRequestListByNextToken(request));
+            return await Invoke<GetReportRequestListByNextTokenResponse>(ConvertGetReportRequestListByNextToken(request));
         }
 
         
@@ -194,9 +194,9 @@ namespace MarketplaceWebService
         /// The UpdateReportAcknowledgements operation updates the acknowledged status of one or more reports.
         /// 
         /// </remarks>
-        public UpdateReportAcknowledgementsResponse UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
+        public async Task<UpdateReportAcknowledgementsResponse> UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
         {
-            return Invoke<UpdateReportAcknowledgementsResponse>(ConvertUpdateReportAcknowledgements(request));
+            return await Invoke<UpdateReportAcknowledgementsResponse>(ConvertUpdateReportAcknowledgements(request));
         }
 
         
@@ -213,9 +213,9 @@ namespace MarketplaceWebService
         /// caution (the default is false).
         /// 
         /// </remarks>
-        public SubmitFeedResponse SubmitFeed(SubmitFeedRequest request)
+        public async Task<SubmitFeedResponse> SubmitFeed(SubmitFeedRequest request)
         {
-            return Invoke<SubmitFeedResponse,SubmitFeedRequest>(ConvertSubmitFeed(request), request);
+            return await Invoke<SubmitFeedResponse,SubmitFeedRequest>(ConvertSubmitFeed(request), request);
         }
 
         
@@ -230,9 +230,9 @@ namespace MarketplaceWebService
         /// regardless of acknowledgement status
         /// 
         /// </remarks>
-        public GetReportCountResponse GetReportCount(GetReportCountRequest request)
+        public async Task<GetReportCountResponse> GetReportCount(GetReportCountRequest request)
         {
-            return Invoke<GetReportCountResponse>(ConvertGetReportCount(request));
+            return await Invoke<GetReportCountResponse>(ConvertGetReportCount(request));
         }
 
         
@@ -245,9 +245,9 @@ namespace MarketplaceWebService
         /// retrieve the next batch of list items and if there are more items to retrieve
         /// 
         /// </remarks>
-        public GetFeedSubmissionListByNextTokenResponse GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
+        public async Task<GetFeedSubmissionListByNextTokenResponse> GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
         {
-            return Invoke<GetFeedSubmissionListByNextTokenResponse>(ConvertGetFeedSubmissionListByNextToken(request));
+            return await Invoke<GetFeedSubmissionListByNextTokenResponse>(ConvertGetFeedSubmissionListByNextToken(request));
         }
 
         
@@ -261,9 +261,9 @@ namespace MarketplaceWebService
         /// last 30 days that have not started processing
         /// 
         /// </remarks>
-        public CancelFeedSubmissionsResponse CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
+        public async Task<CancelFeedSubmissionsResponse> CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
         {
-            return Invoke<CancelFeedSubmissionsResponse>(ConvertCancelFeedSubmissions(request));
+            return await Invoke<CancelFeedSubmissionsResponse>(ConvertCancelFeedSubmissions(request));
         }
 
         
@@ -276,9 +276,9 @@ namespace MarketplaceWebService
         /// requests the generation of a report
         /// 
         /// </remarks>
-        public RequestReportResponse RequestReport(RequestReportRequest request)
+        public async Task<RequestReportResponse> RequestReport(RequestReportRequest request)
         {
-            return Invoke<RequestReportResponse>(ConvertRequestReport(request));
+            return await Invoke<RequestReportResponse>(ConvertRequestReport(request));
         }
 
         
@@ -291,171 +291,171 @@ namespace MarketplaceWebService
         /// returns the number of feeds matching all of the specified criteria
         /// 
         /// </remarks>
-        public GetFeedSubmissionCountResponse GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
+        public async Task<GetFeedSubmissionCountResponse> GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
         {
-            return Invoke<GetFeedSubmissionCountResponse>(ConvertGetFeedSubmissionCount(request));
+            return await Invoke<GetFeedSubmissionCountResponse>(ConvertGetFeedSubmissionCount(request));
         }
 
-        
-        /// <summary>
-        /// Cancel Report Requests 
-        /// </summary>
-        /// <param name="request">Cancel Report Requests  request</param>
-        /// <returns>Cancel Report Requests  Response from the service</returns>
-        /// <remarks>
-        /// cancels report requests that have not yet started processing,
-        /// by default all those within the last 90 days
-        /// 
-        /// </remarks>
-        public CancelReportRequestsResponse CancelReportRequests(CancelReportRequestsRequest request)
-        {
-            return Invoke<CancelReportRequestsResponse>(ConvertCancelReportRequests(request));
-        }
 
-        
-        /// <summary>
-        /// Get Report List 
-        /// </summary>
-        /// <param name="request">Get Report List  request</param>
-        /// <returns>Get Report List  Response from the service</returns>
-        /// <remarks>
-        /// returns a list of reports; by default the most recent ten reports,
-        /// regardless of their acknowledgement status
-        /// 
-        /// </remarks>
-        public GetReportListResponse GetReportList(GetReportListRequest request)
-        {
-            return Invoke<GetReportListResponse>(ConvertGetReportList(request));
-        }
+		/// <summary>
+		/// Cancel Report Requests 
+		/// </summary>
+		/// <param name="request">Cancel Report Requests  request</param>
+		/// <returns>Cancel Report Requests  Response from the service</returns>
+		/// <remarks>
+		/// cancels report requests that have not yet started processing,
+		/// by default all those within the last 90 days
+		/// 
+		/// </remarks>
+		public async Task<CancelReportRequestsResponse> CancelReportRequests(CancelReportRequestsRequest request)
+		{
+			return await Invoke<CancelReportRequestsResponse>(ConvertCancelReportRequests(request));
+		}
 
-        
-        /// <summary>
-        /// Get Feed Submission Result 
-        /// </summary>
-        /// <param name="request">Get Feed Submission Result  request</param>
-        /// <returns>Get Feed Submission Result  Response from the service</returns>
-        /// <remarks>
-        /// retrieves the feed processing report
-        /// 
-        /// </remarks>
-        public GetFeedSubmissionResultResponse GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
-        {
-            return Invoke<GetFeedSubmissionResultResponse, GetFeedSubmissionResultRequest>(ConvertGetFeedSubmissionResult(request), request);
-        }
 
-        
-        /// <summary>
-        /// Get Feed Submission List 
-        /// </summary>
-        /// <param name="request">Get Feed Submission List  request</param>
-        /// <returns>Get Feed Submission List  Response from the service</returns>
-        /// <remarks>
-        /// returns a list of feed submission identifiers and their associated metadata
-        /// 
-        /// </remarks>
-        public GetFeedSubmissionListResponse GetFeedSubmissionList(GetFeedSubmissionListRequest request)
-        {
-            return Invoke<GetFeedSubmissionListResponse>(ConvertGetFeedSubmissionList(request));
-        }
+		/// <summary>
+		/// Get Report List 
+		/// </summary>
+		/// <param name="request">Get Report List  request</param>
+		/// <returns>Get Report List  Response from the service</returns>
+		/// <remarks>
+		/// returns a list of reports; by default the most recent ten reports,
+		/// regardless of their acknowledgement status
+		/// 
+		/// </remarks>
+		public async Task<GetReportListResponse> GetReportList(GetReportListRequest request)
+		{
+			return await Invoke<GetReportListResponse>(ConvertGetReportList(request));
+		}
 
-        
-        /// <summary>
-        /// Get Report Request List 
-        /// </summary>
-        /// <param name="request">Get Report Request List  request</param>
-        /// <returns>Get Report Request List  Response from the service</returns>
-        /// <remarks>
-        /// returns a list of report requests ids and their associated metadata
-        /// 
-        /// </remarks>
-        public GetReportRequestListResponse GetReportRequestList(GetReportRequestListRequest request)
-        {
-            return Invoke<GetReportRequestListResponse>(ConvertGetReportRequestList(request));
-        }
 
-        
-        /// <summary>
-        /// Get Report Schedule List By Next Token 
-        /// </summary>
-        /// <param name="request">Get Report Schedule List By Next Token  request</param>
-        /// <returns>Get Report Schedule List By Next Token  Response from the service</returns>
-        /// <remarks>
-        /// retrieve the next batch of list items and if there are more items to retrieve
-        /// 
-        /// </remarks>
-        public GetReportScheduleListByNextTokenResponse GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
-        {
-            return Invoke<GetReportScheduleListByNextTokenResponse>(ConvertGetReportScheduleListByNextToken(request));
-        }
+		/// <summary>
+		/// Get Feed Submission Result 
+		/// </summary>
+		/// <param name="request">Get Feed Submission Result  request</param>
+		/// <returns>Get Feed Submission Result  Response from the service</returns>
+		/// <remarks>
+		/// retrieves the feed processing report
+		/// 
+		/// </remarks>
+		public async Task<GetFeedSubmissionResultResponse> GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
+		{
+			return await Invoke<GetFeedSubmissionResultResponse, GetFeedSubmissionResultRequest>(ConvertGetFeedSubmissionResult(request), request);
+		}
 
-        
-        /// <summary>
-        /// Get Report List By Next Token 
-        /// </summary>
-        /// <param name="request">Get Report List By Next Token  request</param>
-        /// <returns>Get Report List By Next Token  Response from the service</returns>
-        /// <remarks>
-        /// retrieve the next batch of list items and if there are more items to retrieve
-        /// 
-        /// </remarks>
-        public GetReportListByNextTokenResponse GetReportListByNextToken(GetReportListByNextTokenRequest request)
-        {
-            return Invoke<GetReportListByNextTokenResponse>(ConvertGetReportListByNextToken(request));
-        }
 
-        
-        /// <summary>
-        /// Manage Report Schedule 
-        /// </summary>
-        /// <param name="request">Manage Report Schedule  request</param>
-        /// <returns>Manage Report Schedule  Response from the service</returns>
-        /// <remarks>
-        /// Creates, updates, or deletes a report schedule
-        /// for a given report type, such as order reports in particular.
-        /// 
-        /// </remarks>
-        public ManageReportScheduleResponse ManageReportSchedule(ManageReportScheduleRequest request)
-        {
-            return Invoke<ManageReportScheduleResponse>(ConvertManageReportSchedule(request));
-        }
+		/// <summary>
+		/// Get Feed Submission List 
+		/// </summary>
+		/// <param name="request">Get Feed Submission List  request</param>
+		/// <returns>Get Feed Submission List  Response from the service</returns>
+		/// <remarks>
+		/// returns a list of feed submission identifiers and their associated metadata
+		/// 
+		/// </remarks>
+		public async Task<GetFeedSubmissionListResponse> GetFeedSubmissionList(GetFeedSubmissionListRequest request)
+		{
+			return await Invoke<GetFeedSubmissionListResponse>(ConvertGetFeedSubmissionList(request));
+		}
 
-        
-        /// <summary>
-        /// Get Report Request Count 
-        /// </summary>
-        /// <param name="request">Get Report Request Count  request</param>
-        /// <returns>Get Report Request Count  Response from the service</returns>
-        /// <remarks>
-        /// returns a count of report requests; by default all the report
-        /// requests in the last 90 days
-        /// 
-        /// </remarks>
-        public GetReportRequestCountResponse GetReportRequestCount(GetReportRequestCountRequest request)
-        {
-            return Invoke<GetReportRequestCountResponse>(ConvertGetReportRequestCount(request));
-        }
 
-        
-        /// <summary>
-        /// Get Report Schedule List 
-        /// </summary>
-        /// <param name="request">Get Report Schedule List  request</param>
-        /// <returns>Get Report Schedule List  Response from the service</returns>
-        /// <remarks>
-        /// returns the list of report schedules
-        /// 
-        /// </remarks>
-        public GetReportScheduleListResponse GetReportScheduleList(GetReportScheduleListRequest request)
-        {
-            return Invoke<GetReportScheduleListResponse>(ConvertGetReportScheduleList(request));
-        }
+		/// <summary>
+		/// Get Report Request List 
+		/// </summary>
+		/// <param name="request">Get Report Request List  request</param>
+		/// <returns>Get Report Request List  Response from the service</returns>
+		/// <remarks>
+		/// returns a list of report requests ids and their associated metadata
+		/// 
+		/// </remarks>
+		public async Task<GetReportRequestListResponse> GetReportRequestList(GetReportRequestListRequest request)
+		{
+			return await Invoke<GetReportRequestListResponse>(ConvertGetReportRequestList(request));
+		}
 
-        // Private API ------------------------------------------------------------//
 
-        private HttpWebRequest ConfigureWebRequest(String queryParameters, ContentType contentType)
+		/// <summary>
+		/// Get Report Schedule List By Next Token 
+		/// </summary>
+		/// <param name="request">Get Report Schedule List By Next Token  request</param>
+		/// <returns>Get Report Schedule List By Next Token  Response from the service</returns>
+		/// <remarks>
+		/// retrieve the next batch of list items and if there are more items to retrieve
+		/// 
+		/// </remarks>
+		public async Task<GetReportScheduleListByNextTokenResponse> GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
+		{
+			return await Invoke<GetReportScheduleListByNextTokenResponse>(ConvertGetReportScheduleListByNextToken(request));
+		}
+
+
+		/// <summary>
+		/// Get Report List By Next Token 
+		/// </summary>
+		/// <param name="request">Get Report List By Next Token  request</param>
+		/// <returns>Get Report List By Next Token  Response from the service</returns>
+		/// <remarks>
+		/// retrieve the next batch of list items and if there are more items to retrieve
+		/// 
+		/// </remarks>
+		public async Task<GetReportListByNextTokenResponse> GetReportListByNextToken(GetReportListByNextTokenRequest request)
+		{
+			return await Invoke<GetReportListByNextTokenResponse>(ConvertGetReportListByNextToken(request));
+		}
+
+
+		/// <summary>
+		/// Manage Report Schedule 
+		/// </summary>
+		/// <param name="request">Manage Report Schedule  request</param>
+		/// <returns>Manage Report Schedule  Response from the service</returns>
+		/// <remarks>
+		/// Creates, updates, or deletes a report schedule
+		/// for a given report type, such as order reports in particular.
+		/// 
+		/// </remarks>
+		public async Task<ManageReportScheduleResponse> ManageReportSchedule(ManageReportScheduleRequest request)
+		{
+			return await Invoke<ManageReportScheduleResponse>(ConvertManageReportSchedule(request));
+		}
+
+
+		/// <summary>
+		/// Get Report Request Count 
+		/// </summary>
+		/// <param name="request">Get Report Request Count  request</param>
+		/// <returns>Get Report Request Count  Response from the service</returns>
+		/// <remarks>
+		/// returns a count of report requests; by default all the report
+		/// requests in the last 90 days
+		/// 
+		/// </remarks>
+		public async Task<GetReportRequestCountResponse> GetReportRequestCount(GetReportRequestCountRequest request)
+		{
+			return await Invoke<GetReportRequestCountResponse>(ConvertGetReportRequestCount(request));
+		}
+
+
+		/// <summary>
+		/// Get Report Schedule List 
+		/// </summary>
+		/// <param name="request">Get Report Schedule List  request</param>
+		/// <returns>Get Report Schedule List  Response from the service</returns>
+		/// <remarks>
+		/// returns the list of report schedules
+		/// 
+		/// </remarks>
+		public async Task<GetReportScheduleListResponse> GetReportScheduleList(GetReportScheduleListRequest request)
+		{
+			return await Invoke<GetReportScheduleListResponse>(ConvertGetReportScheduleList(request));
+		}
+
+		// Private API ------------------------------------------------------------//
+
+		private HttpWebRequest ConfigureWebRequest(String queryParameters, ContentType contentType)
         {
             string serviceUrl;
-            if (config.ServiceURL.EndsWith("/"))
+            if (config.ServiceURL.EndsWith("/", StringComparison.Ordinal))
             {
                 serviceUrl = config.ServiceURL.Substring(0, config.ServiceURL.Length - 1);
             }
@@ -469,18 +469,18 @@ namespace MarketplaceWebService
 
             if (config.IsSetProxyHost())
             {
-                request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
+                //request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
             }
 
-            request.UserAgent = config.UserAgent;
+            //request.UserAgent = config.UserAgent;
 
             request.Method = "POST";
-            request.Timeout = config.RequestTimeout;
+            //request.Timeout = config.RequestTimeout;
 
             request.ContentType = contentType.ToString();
 
-            request.SendChunked = true;
-            System.Net.ServicePointManager.Expect100Continue = false;
+            //request.SendChunked = true;
+            //System.Net.ServicePointManager.Expect100Continue = false;
 
             return request;
         }
@@ -495,26 +495,26 @@ namespace MarketplaceWebService
 
             if (config.IsSetProxyHost())
             {
-                request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
+                //request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
             }
-            request.UserAgent = config.UserAgent;
+            //request.UserAgent = config.UserAgent;
             request.Method = "POST";
-            request.Timeout = 50000;
+            //request.Timeout = 50000;
             request.ContentType = "application/x-www-form-urlencoded; charset=utf-8";
-            request.ContentLength = contentLength;
+            //request.ContentLength = contentLength;
 
             return request;
         }
 
-        private T Invoke<T>(IDictionary<String, String> parameters)
+        private async Task<T> Invoke<T>(IDictionary<String, String> parameters)
         {
-            return Invoke<T, Object>(parameters, null);
+            return await Invoke<T, Object>(parameters, null);
         }
 
         /**
          * Invoke request and return response
          */
-        private T Invoke<T, K>(IDictionary<String, String> parameters, K clazz)
+        private async Task<T> Invoke<T, K>(IDictionary<String, String> parameters, K clazz)
         {
 
             String actionName = parameters["Action"];
@@ -572,7 +572,7 @@ namespace MarketplaceWebService
 
                     WebHeaderCollection headers = request.Headers;
 
-                    using (Stream requestStream = request.GetRequestStream())
+					using (Stream requestStream = await request.GetRequestStreamAsync())
                     {
                         switch (requestType)
                         {
@@ -585,16 +585,15 @@ namespace MarketplaceWebService
                                 requestStream.Write(requestData, 0, requestData.Length);
                                 break;
                         }
-                        requestStream.Close();
                     }
 
-                    using (HttpWebResponse httpResponse = request.GetResponse() as HttpWebResponse)
+                    using (HttpWebResponse httpResponse = await request.GetResponseAsync() as HttpWebResponse)
                     {
                         statusCode = httpResponse.StatusCode;
                         rhm = new ResponseHeaderMetadata(
-                            httpResponse.GetResponseHeader("x-mws-request-id"),
-                            httpResponse.GetResponseHeader("x-mws-response-context"),
-                            httpResponse.GetResponseHeader("x-mws-timestamp"));
+                            httpResponse.Headers["x-mws-request-id"],
+                            httpResponse.Headers["x-mws-response-context"],
+                            httpResponse.Headers["x-mws-timestamp"]);
 
                         if (isStreamingResponse && statusCode == HttpStatusCode.OK)
                         {
@@ -701,8 +700,9 @@ namespace MarketplaceWebService
                 return false;
             }
 
-            MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)
-                Attribute.GetCustomAttribute(type, typeof(MarketplaceWebServiceAttribute));
+			MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)
+				type.GetTypeInfo().GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
+                
 
             if (attribute == null)
             {
@@ -725,9 +725,9 @@ namespace MarketplaceWebService
                 return RequestType.DEFAULT;
 
             MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)
-                Attribute.GetCustomAttribute(type, typeof(MarketplaceWebServiceAttribute));
+				type.GetTypeInfo().GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
 
-            return attribute.RequestType;
+			return attribute.RequestType;
         }
 
         /**
@@ -735,7 +735,7 @@ namespace MarketplaceWebService
          */
         private Stream GetTransferStream(object request, StreamType streamType)
         {
-            if (request == null || !request.GetType().IsClass)
+			if (request == null || !request.GetType().GetTypeInfo().IsClass)
             {
                 throw new ArgumentException("request must be a class reference");
             }
@@ -745,7 +745,8 @@ namespace MarketplaceWebService
             foreach (MethodInfo mi in request.GetType().GetMethods())
             {
                 MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)
-                    Attribute.GetCustomAttribute(mi, typeof(MarketplaceWebServiceStreamAttribute));
+					mi.GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
+
 
                 if (attribute != null && attribute.StreamType == streamType)
                 {
@@ -756,7 +757,7 @@ namespace MarketplaceWebService
             foreach (PropertyInfo pi in request.GetType().GetProperties())
             {
                 MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)
-                   Attribute.GetCustomAttribute(pi, typeof(MarketplaceWebServiceStreamAttribute));
+					pi.GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));                   
 
                 if (attribute != null && attribute.StreamType == streamType)
                 {
@@ -822,7 +823,7 @@ namespace MarketplaceWebService
             receiverStream.Position = 0;
 
             WebHeaderCollection headers = webResponse.Headers;
-            string receivedContentMD5 = headers.Get("Content-MD5");
+            string receivedContentMD5 = headers["Content-MD5"];
             string expectedContentMD5 = CalculateContentMD5(receiverStream);
 
             receiverStream.Position = 0;
@@ -835,8 +836,8 @@ namespace MarketplaceWebService
             }
 
             IDictionary<String, String> parameters = new Dictionary<String, String>();
-            parameters.Add("RequestId", headers.Get("x-amz-request-id"));
-            parameters.Add("ContentMD5", headers.Get("Content-MD5"));
+            parameters.Add("RequestId", headers["x-amz-request-id"]);
+            parameters.Add("ContentMD5", headers["Content-MD5"]);
 
             return DeserializeStreamingResponse<T>(parameters);
         }
@@ -846,8 +847,8 @@ namespace MarketplaceWebService
          */
         public static string CalculateContentMD5(Stream content)
         {
-            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
-            byte[] hash = provider.ComputeHash(content);
+			var md5 = MD5.Create();
+			byte[] hash = md5.ComputeHash(content);
             return Convert.ToBase64String(hash);
         }
 
@@ -1004,7 +1005,7 @@ namespace MarketplaceWebService
             if ("2".Equals(signatureVersion))
             {
                 String signatureMethod = config.SignatureMethod;
-                algorithm = KeyedHashAlgorithm.Create(signatureMethod.ToUpper());
+				algorithm = new HMACSHA256();
                 parameters.Add("SignatureMethod", signatureMethod);
                 stringToSign = CalculateStringToSignV2(parameters);
             }
