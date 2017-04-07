@@ -2,9 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.5</TargetFramework>
+	<PackageId>Claytondus.AmazonMWS</PackageId>
+	<PackageVersion>0.1.0</PackageVersion>
+	<Description>.NET Standard fork of Amazon MWS client</Description>
+	<Authors>Amazon and Clayton Davis</Authors>
+	<Copyright>Copyright 2017 (c) Amazon Technologies, Inc. and Clayton Davis. All rights reserved.</Copyright>
+	<PackageProjectUrl>https://github.com/claytondus/Claytondus.AmazonMWS</PackageProjectUrl>	
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.5'">
     <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
     <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
@@ -12,4 +18,7 @@
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
     <PackageReference Include="System.Reflection.Primitives" Version="4.3.0" />
   </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+	</ItemGroup>
 </Project>

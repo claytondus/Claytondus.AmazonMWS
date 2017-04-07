@@ -20,9 +20,9 @@ using System.IO;
 using System.Reflection;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
-using MarketplaceWebService.Model;
+using Claytondus.AmazonMWS.Model;
 
-namespace MarketplaceWebService.Mock
+namespace Claytondus.AmazonMWS.Mock
 {
 
     /// <summary>

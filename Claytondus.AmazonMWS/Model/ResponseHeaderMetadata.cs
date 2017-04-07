@@ -18,7 +18,7 @@
 using System;
 using System.Text;
 
-namespace MarketplaceWebService.Model
+namespace Claytondus.AmazonMWS.Model
 {
   public class ResponseHeaderMetadata
   {

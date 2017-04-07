@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MarketplaceWebService.Attributes
+namespace Claytondus.AmazonMWS.Attributes
 {
     public enum RequestType
     {

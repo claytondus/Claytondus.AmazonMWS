@@ -25,14 +25,14 @@ using System.Security.Cryptography;
 using System.Globalization;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-using MarketplaceWebService.Model;
-using MarketplaceWebService;
-using MarketplaceWebService.Attributes;
+using Claytondus.AmazonMWS.Model;
+using Claytondus.AmazonMWS;
+using Claytondus.AmazonMWS.Attributes;
 
 using System.Collections.Specialized;
 using System.Threading.Tasks;
 
-namespace MarketplaceWebService
+namespace Claytondus.AmazonMWS
 {
    /**
 

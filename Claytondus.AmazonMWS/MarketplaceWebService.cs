@@ -18,10 +18,10 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-using MarketplaceWebService.Model;
+using Claytondus.AmazonMWS.Model;
 using System.Threading.Tasks;
 
-namespace MarketplaceWebService
+namespace Claytondus.AmazonMWS
 {
 
 

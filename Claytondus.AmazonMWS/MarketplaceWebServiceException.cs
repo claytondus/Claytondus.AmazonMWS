@@ -19,10 +19,10 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Net;
-using MarketplaceWebService;
-using MarketplaceWebService.Model;
+using Claytondus.AmazonMWS;
+using Claytondus.AmazonMWS.Model;
 
-namespace MarketplaceWebService
+namespace Claytondus.AmazonMWS
 {
     /// <summary>
     /// Marketplace Web Service  Exception provides details of errors 

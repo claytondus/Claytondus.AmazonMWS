@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 
-namespace MarketplaceWebService.Model
+namespace Claytondus.AmazonMWS.Model
 {
     /// <summary>
     /// Defines the content type, encoding, and character set used to

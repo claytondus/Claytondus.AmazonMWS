@@ -20,10 +20,10 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using MarketplaceWebService.Attributes;
+using Claytondus.AmazonMWS.Attributes;
 
 
-namespace MarketplaceWebService.Model
+namespace Claytondus.AmazonMWS.Model
 {
     [XmlTypeAttribute(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRootAttribute(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]

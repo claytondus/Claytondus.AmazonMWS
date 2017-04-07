@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
-namespace MarketplaceWebService.Model
+namespace Claytondus.AmazonMWS.Model
 {
     /// <summary>
     /// Enumeration of valid media types for the ContentType object.  The description attribute
