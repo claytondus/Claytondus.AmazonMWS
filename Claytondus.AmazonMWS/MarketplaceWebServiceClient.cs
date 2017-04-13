@@ -26,10 +26,7 @@ using System.Globalization;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Claytondus.AmazonMWS.Model;
-using Claytondus.AmazonMWS;
 using Claytondus.AmazonMWS.Attributes;
-
-using System.Collections.Specialized;
 using System.Threading.Tasks;
 
 namespace Claytondus.AmazonMWS
@@ -745,7 +742,7 @@ namespace Claytondus.AmazonMWS
             foreach (MethodInfo mi in request.GetType().GetMethods())
             {
                 MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)
-					mi.GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
+					mi.GetCustomAttribute(typeof(MarketplaceWebServiceStreamAttribute));
 
 
                 if (attribute != null && attribute.StreamType == streamType)
@@ -757,7 +754,7 @@ namespace Claytondus.AmazonMWS
             foreach (PropertyInfo pi in request.GetType().GetProperties())
             {
                 MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)
-					pi.GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));                   
+					pi.GetCustomAttribute(typeof(MarketplaceWebServiceStreamAttribute));                   
 
                 if (attribute != null && attribute.StreamType == streamType)
                 {
