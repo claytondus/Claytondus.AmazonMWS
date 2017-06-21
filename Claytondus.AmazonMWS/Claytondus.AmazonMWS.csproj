@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.5</TargetFramework>
@@ -7,7 +7,8 @@
 	<Description>.NET Standard fork of Amazon MWS client</Description>
 	<Authors>Amazon and Clayton Davis</Authors>
 	<Copyright>Copyright 2017 (c) Amazon Technologies, Inc. and Clayton Davis. All rights reserved.</Copyright>
-	<PackageProjectUrl>https://github.com/claytondus/Claytondus.AmazonMWS</PackageProjectUrl>	
+	<PackageProjectUrl>https://github.com/claytondus/Claytondus.AmazonMWS</PackageProjectUrl>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>	
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.5'">
@@ -21,4 +22,8 @@
 
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
 	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Claytondus.AmazonMWS.FbaInbound\Claytondus.AmazonMWS.FbaInbound.csproj" />
+  </ItemGroup>
 </Project>
