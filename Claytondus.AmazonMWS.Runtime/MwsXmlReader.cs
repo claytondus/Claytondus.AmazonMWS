@@ -18,7 +18,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace Claytondus.AmazonMWS.Runtime
 {
@@ -26,9 +25,9 @@ namespace Claytondus.AmazonMWS.Runtime
     public class MwsXmlReader : IMwsReader
     {
 
-        private XDocument doc;
-        private XNode currentElement;
-        private XNode currentChild;
+        private XmlDocument doc;
+        private XmlNode currentElement;
+        private XmlNode currentChild;
 
         readonly static TypeCode[] numericTypes = { TypeCode.Double, TypeCode.Int16, TypeCode.Int32, TypeCode.Int64 };
 
@@ -38,10 +37,11 @@ namespace Claytondus.AmazonMWS.Runtime
         /// <param name="xmlValue">xml content as string</param>
         public MwsXmlReader(string xmlValue)
         {
-            doc = new XDocument(xmlValue);
+            doc = new XmlDocument();
+            doc.LoadXml(xmlValue);
             //initialize current node to root
-            currentElement = doc.Root;
-            currentChild = currentElement.;
+            currentElement = doc.DocumentElement;
+            currentChild = currentElement.FirstChild;
         }
 
         // methods
@@ -176,7 +176,7 @@ namespace Claytondus.AmazonMWS.Runtime
             }
         }
 
-        private void BeginObject(XNode node)
+        private void BeginObject(XmlNode node)
         {
             if (node == null)
                 throw new Exception("Cannot read null node");
@@ -190,7 +190,7 @@ namespace Claytondus.AmazonMWS.Runtime
         {
             //move the child pointer back to the parent node (BeginObject should have been called)
             currentChild = currentElement;
-            currentElement = currentElement.Parent;
+            currentElement = currentElement.ParentNode;
         }
 
        private T ConvertValue<T>(string str)
@@ -256,7 +256,7 @@ namespace Claytondus.AmazonMWS.Runtime
         /// <param name="t">Expected type of the element</param>
         /// <param name="node">XmlNode to be read from</param>
         /// <returns>Value of element</returns>
-        private T ReadObject<T>(XNode node)
+        private T ReadObject<T>(XmlNode node)
         {
             Type type = typeof(T);
 
@@ -274,7 +274,7 @@ namespace Claytondus.AmazonMWS.Runtime
             }
             else
             {
-                return ConvertValue<T>(node);
+                return ConvertValue<T>(node.InnerText);
             }
         }
               

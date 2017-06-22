@@ -20,7 +20,6 @@ using System.Xml.Serialization;
 using System.Collections;
 using System.Threading;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace Claytondus.AmazonMWS.Runtime
 {
@@ -67,12 +66,12 @@ namespace Claytondus.AmazonMWS.Runtime
                 {
                     request = connection.GetHttpClient(serviceEndPoint.URI);
                     byte[] requestData = new UTF8Encoding().GetBytes(queryString);
-                    request.ContentLength = requestData.Length;
-                    using (Stream requestStream = request.GetRequestStream())
+                    //request.ContentLength = requestData.Length;
+                    using (Stream requestStream = request.GetRequestStreamAsync().Result)
                     {
                         requestStream.Write(requestData, 0, requestData.Length);
                     }
-                    using (HttpWebResponse httpResponse = request.GetResponse() as HttpWebResponse)
+                    using (HttpWebResponse httpResponse = request.GetResponseAsync().Result as HttpWebResponse)
                     {
                         statusCode = httpResponse.StatusCode;
                         message = httpResponse.StatusDescription;
@@ -131,15 +130,15 @@ namespace Claytondus.AmazonMWS.Runtime
         /// <returns></returns>
         private static MwsResponseHeaderMetadata GetResponseHeaderMetadata(HttpWebResponse httpResponse)
         {
-            string requestId = httpResponse.GetResponseHeader("x-mws-request-id");
-            string timestamp = httpResponse.GetResponseHeader("x-mws-timestamp");
-            string contextStr = httpResponse.GetResponseHeader("x-mws-response-context");
+            string requestId = httpResponse.Headers["x-mws-request-id"];
+            string timestamp = httpResponse.Headers["x-mws-timestamp"];
+            string contextStr = httpResponse.Headers["x-mws-response-context"];
             List<string> context = new List<string>(contextStr.Split(','));
 
             double? quotaMax;
             try
             {
-                string quotaMaxStr = httpResponse.GetResponseHeader("x-mws-quota-max");
+                string quotaMaxStr = httpResponse.Headers["x-mws-quota-max"];
                 quotaMax = Double.Parse(quotaMaxStr);
             }
             catch (Exception)
@@ -150,7 +149,7 @@ namespace Claytondus.AmazonMWS.Runtime
             double? quotaRemaining;
             try
             {
-                string quotaRemainingStr = httpResponse.GetResponseHeader("x-mws-quota-remaining");
+                string quotaRemainingStr = httpResponse.Headers["x-mws-quota-remaining"];
                 quotaRemaining = Double.Parse(quotaRemainingStr);
             }
             catch (Exception)
@@ -161,7 +160,7 @@ namespace Claytondus.AmazonMWS.Runtime
             DateTime? quotaResetsAt;
             try
             {
-                string quotaResetsAtStr = httpResponse.GetResponseHeader("x-mws-quota-resetsOn");
+                string quotaResetsAtStr = httpResponse.Headers["x-mws-quota-resetsOn"];
                 quotaResetsAt = MwsUtil.ParseTimestamp(quotaResetsAtStr);
             }
             catch (Exception)
@@ -333,7 +332,7 @@ namespace Claytondus.AmazonMWS.Runtime
             WriteList<T>(null, name, list);
         }
 
-        public void WriteAny(ICollection<XElement> elements)
+        public void WriteAny(ICollection<XmlElement> elements)
         {
             throw new NotSupportedException("WriteAny not supported");
         }

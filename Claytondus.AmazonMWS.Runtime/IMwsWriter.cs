@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace Claytondus.AmazonMWS.Runtime
 {
@@ -98,6 +97,6 @@ namespace Claytondus.AmazonMWS.Runtime
         /// Write a list of arbitrary elements.
         /// </summary>
         /// <param name="elements">Collection of w3c DOM elements to write</param>
-        void WriteAny(ICollection<XElement> elements);
+        void WriteAny(ICollection<XmlElement> elements);
     }
 }

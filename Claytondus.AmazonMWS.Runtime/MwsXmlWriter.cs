@@ -19,7 +19,6 @@ using System.IO;
 using System.Collections;
 using System.Globalization;
 using System.Reflection;
-using System.Xml.Linq;
 
 namespace Claytondus.AmazonMWS.Runtime
 {
@@ -117,11 +116,11 @@ namespace Claytondus.AmazonMWS.Runtime
             }
         }
 
-        public void WriteAny(ICollection<XElement> elements)
+        public void WriteAny(ICollection<XmlElement> elements)
         {
             if (elements != null)
             {
-                 foreach (XElement element in elements) 
+                 foreach (XmlElement element in elements) 
                  {
                      string name = element.LocalName;
                      if(name == null)
@@ -166,9 +165,9 @@ namespace Claytondus.AmazonMWS.Runtime
                         Write(name, v);
                     }
                 }
-                else if (typeof(XNode).IsAssignableFrom(type))
+                else if (typeof(XmlNode).IsAssignableFrom(type))
                 {
-                    writer.WriteRaw(((XNode)value).OuterXml);
+                    writer.WriteRaw(((XmlNode)value).OuterXml);
                 }
                 else
                 {

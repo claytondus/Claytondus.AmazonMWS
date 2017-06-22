@@ -24,7 +24,7 @@ namespace Claytondus.AmazonMWS.FbaInbound
     /// <summary>
     /// FBAInboundServiceMWSClient is an implementation of FBAInboundServiceMWS
     /// </summary>
-    public class FBAInboundServiceMWSClient : FBAInboundServiceMWS
+    public class FBAInboundServiceMWSClient : FBAInboundServiceMWS 
     {
 
         private const string libraryVersion = "2016-10-05";

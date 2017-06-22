@@ -8,7 +8,7 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
- * Asin List
+ * ASIN List
  * API Version: 2010-10-01
  * Library Version: 2016-10-05
  * Generated: Wed Oct 05 06:15:39 PDT 2016
@@ -80,7 +80,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
 
         public override void WriteTo(IMwsWriter writer)
         {
-            writer.Write("http://mws.amazonaws.com/FulfillmentInboundShipment/2010-10-01/", "AsinList", this);
+            writer.Write("http://mws.amazonaws.com/FulfillmentInboundShipment/2010-10-01/", "ASINList", this);
         }
 
 

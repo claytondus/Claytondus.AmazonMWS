@@ -91,14 +91,14 @@ namespace Claytondus.AmazonMWS.Runtime
             if (this.frozen)
             {
                 HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
-                if (ProxyHost != null && ProxyPort != 0)
-                {
-                    request.Proxy = new WebProxy(this.ProxyHost, this.ProxyPort);
-                    request.Proxy.Credentials = new NetworkCredential(this.ProxyUsername, this.ProxyPassword);
-                }
-                request.UserAgent = this.UserAgent;
+                //if (ProxyHost != null && ProxyPort != 0)
+                //{
+                //    request.Proxy = new WebProxy(this.ProxyHost, this.ProxyPort);
+                //    request.Proxy.Credentials = new NetworkCredential(this.ProxyUsername, this.ProxyPassword);
+                //}
+                //request.UserAgent = this.UserAgent;
                 request.Method = "POST";
-                request.Timeout = this.ConnectionTimeout;
+                //request.Timeout = this.ConnectionTimeout;
                 request.ContentType = "application/x-www-form-urlencoded; charset=utf-8";
                 foreach(KeyValuePair<string, string> header in this.headers)
                 {
@@ -189,8 +189,8 @@ namespace Claytondus.AmazonMWS.Runtime
                 MwsUtil.EscapeAppVersion(this.ApplicationVersion),
                 MwsUtil.EscapeAttributeValue("C#"), 
                 new string[] { 
-                    "CLI", Environment.Version.ToString(), 
-                    "Platform", Environment.OSVersion.Platform.ToString() + "/" + Environment.OSVersion.Version, 
+                    "CLI", "", 
+                    "Platform", "", 
                     "MWSClientVersion", this.LibraryVersion 
                 });
         }

@@ -34,7 +34,7 @@ namespace Claytondus.AmazonMWS.Runtime
 
         /// <summary>
         /// Read the current child node value as the given type
-        /// <para>Throws a <code>SystemException</code> if the value cannot be retrieved as text</para>
+        /// <para>Throws a <code>Exception</code> if the value cannot be retrieved as text</para>
         /// </summary>
         /// <param name="name">The name to get</param>
         /// <returns>the text value</returns>

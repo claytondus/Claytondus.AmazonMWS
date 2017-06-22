@@ -29,7 +29,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
 
         private string _sellerId;
         private string _mwsAuthToken;
-        private AsinList _asinList;
+        private AsinList _ASINList;
         private string _shipToCountryCode;
 
         /// <summary>
@@ -93,33 +93,33 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
         }
 
         /// <summary>
-        /// Gets and sets the AsinList property.
+        /// Gets and sets the ASINList property.
         /// </summary>
-        [XmlElementAttribute(ElementName = "AsinList")]
-        public AsinList AsinList
+        [XmlElementAttribute(ElementName = "ASINList")]
+        public AsinList ASINList
         {
-            get { return this._asinList; }
-            set { this._asinList = value; }
+            get { return this._ASINList; }
+            set { this._ASINList = value; }
         }
 
         /// <summary>
-        /// Sets the AsinList property.
+        /// Sets the ASINList property.
         /// </summary>
-        /// <param name="asinList">AsinList property.</param>
+        /// <param name="ASINList">ASINList property.</param>
         /// <returns>this instance.</returns>
-        public GetPrepInstructionsForASINRequest WithAsinList(AsinList asinList)
+        public GetPrepInstructionsForASINRequest WithASINList(AsinList ASINList)
         {
-            this._asinList = asinList;
+            this._ASINList = ASINList;
             return this;
         }
 
         /// <summary>
-        /// Checks if AsinList property is set.
+        /// Checks if ASINList property is set.
         /// </summary>
-        /// <returns>true if AsinList property is set.</returns>
-        public bool IsSetAsinList()
+        /// <returns>true if ASINList property is set.</returns>
+        public bool IsSetASINList()
         {
-            return this._asinList != null;
+            return this._ASINList != null;
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
         {
             _sellerId = reader.Read<string>("SellerId");
             _mwsAuthToken = reader.Read<string>("MWSAuthToken");
-            _asinList = reader.Read<AsinList>("AsinList");
+            _ASINList = reader.Read<AsinList>("ASINList");
             _shipToCountryCode = reader.Read<string>("ShipToCountryCode");
         }
 
@@ -165,7 +165,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
         {
             writer.Write("SellerId", _sellerId);
             writer.Write("MWSAuthToken", _mwsAuthToken);
-            writer.Write("AsinList", _asinList);
+            writer.Write("ASINList", _ASINList);
             writer.Write("ShipToCountryCode", _shipToCountryCode);
         }
 
@@ -174,9 +174,9 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
             writer.Write("http://mws.amazonaws.com/FulfillmentInboundShipment/2010-10-01/", "GetPrepInstructionsForASINRequest", this);
         }
 
-    public GetPrepInstructionsForASINRequest (string sellerId,AsinList asinList,string shipToCountryCode) : base() {
+    public GetPrepInstructionsForASINRequest (string sellerId, AsinList ASINList,string shipToCountryCode) : base() {
         this._sellerId = sellerId;
-        this._asinList = asinList;
+        this._ASINList = ASINList;
         this._shipToCountryCode = shipToCountryCode;
     }
 

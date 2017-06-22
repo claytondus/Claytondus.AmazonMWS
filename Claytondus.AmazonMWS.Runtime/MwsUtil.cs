@@ -358,7 +358,21 @@ namespace Claytondus.AmazonMWS.Runtime
         {
             try
             {
-                KeyedHashAlgorithm alg = KeyedHashAlgorithm.Create(algorithm.ToUpper());
+                KeyedHashAlgorithm alg = null;
+                switch (algorithm)
+                {
+                    case "HmacSHA1":
+                        alg = new HMACSHA1();
+                        break;
+                    case "HmacSHA256":
+                        alg = new HMACSHA256();
+                        break;
+                    case "HmacSHA512":
+                        alg = new HMACSHA512();
+                        break;
+                    default:
+                        throw new ArgumentException("Unrecognized HMAC function", algorithm);
+                }
                 alg.Key = defaultEncoding.GetBytes(key);
                 return Convert.ToBase64String(alg.ComputeHash(defaultEncoding.GetBytes(data.ToCharArray())));
 
@@ -526,7 +540,7 @@ namespace Claytondus.AmazonMWS.Runtime
         {
             if (e is Exception)
             {
-                return e;
+                return (Exception)e;
             }
             return new Exception(e.Message, e);
         }

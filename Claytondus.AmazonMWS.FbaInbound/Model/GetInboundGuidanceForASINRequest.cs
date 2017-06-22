@@ -29,7 +29,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
 
         private string _sellerId;
         private string _mwsAuthToken;
-        private ASINList _asinList;
+        private AsinList _asinList;
         private string _marketplaceId;
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
         /// Gets and sets the ASINList property.
         /// </summary>
         [XmlElementAttribute(ElementName = "ASINList")]
-        public ASINList ASINList
+        public AsinList ASINList
         {
             get { return this._asinList; }
             set { this._asinList = value; }
@@ -107,7 +107,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
         /// </summary>
         /// <param name="asinList">ASINList property.</param>
         /// <returns>this instance.</returns>
-        public GetInboundGuidanceForASINRequest WithASINList(ASINList asinList)
+        public GetInboundGuidanceForASINRequest WithASINList(AsinList asinList)
         {
             this._asinList = asinList;
             return this;
@@ -157,7 +157,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
         {
             _sellerId = reader.Read<string>("SellerId");
             _mwsAuthToken = reader.Read<string>("MWSAuthToken");
-            _asinList = reader.Read<ASINList>("ASINList");
+            _asinList = reader.Read<AsinList>("ASINList");
             _marketplaceId = reader.Read<string>("MarketplaceId");
         }
 
@@ -174,7 +174,7 @@ namespace Claytondus.AmazonMWS.FbaInbound.Model
             writer.Write("http://mws.amazonaws.com/FulfillmentInboundShipment/2010-10-01/", "GetInboundGuidanceForASINRequest", this);
         }
 
-    public GetInboundGuidanceForASINRequest (string sellerId,ASINList asinList,string marketplaceId) : base() {
+    public GetInboundGuidanceForASINRequest (string sellerId, AsinList asinList,string marketplaceId) : base() {
         this._sellerId = sellerId;
         this._asinList = asinList;
         this._marketplaceId = marketplaceId;

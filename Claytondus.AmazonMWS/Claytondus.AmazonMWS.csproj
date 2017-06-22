@@ -24,6 +24,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Claytondus.AmazonMWS.FbaInbound\Claytondus.AmazonMWS.FbaInbound.csproj" />
+    <ProjectReference Include="..\Claytondus.AmazonMWS.Feeds\Claytondus.AmazonMWS.Feeds.csproj" />
   </ItemGroup>
 </Project>
