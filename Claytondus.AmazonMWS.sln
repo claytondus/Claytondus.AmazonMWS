@@ -1,20 +1,24 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS", "Claytondus.AmazonMWS\Claytondus.AmazonMWS.csproj", "{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Feeds", "Claytondus.AmazonMWS.Feeds\Claytondus.AmazonMWS.Feeds.csproj", "{DCB37294-F700-44C6-A4AC-ADA76B1008C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Feeds", "Claytondus.AmazonMWS.Feeds\Claytondus.AmazonMWS.Feeds.csproj", "{DCB37294-F700-44C6-A4AC-ADA76B1008C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaInbound", "Claytondus.AmazonMWS.FbaInbound\Claytondus.AmazonMWS.FbaInbound.csproj", "{3214F597-25B2-401B-9BD2-8094A2A73654}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.FbaInbound", "Claytondus.AmazonMWS.FbaInbound\Claytondus.AmazonMWS.FbaInbound.csproj", "{3214F597-25B2-401B-9BD2-8094A2A73654}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Runtime", "Claytondus.AmazonMWS.Runtime\Claytondus.AmazonMWS.Runtime.csproj", "{7F93154D-BBE9-4A01-89DA-86E5C5411262}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Runtime", "Claytondus.AmazonMWS.Runtime\Claytondus.AmazonMWS.Runtime.csproj", "{7F93154D-BBE9-4A01-89DA-86E5C5411262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Products", "Claytondus.AmazonMWS.Products\Claytondus.AmazonMWS.Products.csproj", "{A242FC8F-3A90-4D00-BD3B-4137B89DB718}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Products", "Claytondus.AmazonMWS.Products\Claytondus.AmazonMWS.Products.csproj", "{A242FC8F-3A90-4D00-BD3B-4137B89DB718}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Products.Test", "Claytondus.AmazonMWS.Products.Test\Claytondus.AmazonMWS.Products.Test.csproj", "{69CEC11C-8F77-4FD0-9A7A-05208E57F88B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Products.Test", "Claytondus.AmazonMWS.Products.Test\Claytondus.AmazonMWS.Products.Test.csproj", "{69CEC11C-8F77-4FD0-9A7A-05208E57F88B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaInbound.Test", "Claytondus.AmazonMWS.FbaInbound.Test\Claytondus.AmazonMWS.FbaInbound.Test.csproj", "{77B82F86-772C-41AE-90C9-AAD0BBF0743B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.FbaInbound.Test", "Claytondus.AmazonMWS.FbaInbound.Test\Claytondus.AmazonMWS.FbaInbound.Test.csproj", "{77B82F86-772C-41AE-90C9-AAD0BBF0743B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Orders", "Claytondus.AmazonMWS.Orders\Claytondus.AmazonMWS.Orders.csproj", "{5508FCB4-2431-4877-8769-606AC29DE228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Orders.Test", "Claytondus.AmazonMWS.Orders.Test\Claytondus.AmazonMWS.Orders.Test.csproj", "{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +54,14 @@ Global
 		{77B82F86-772C-41AE-90C9-AAD0BBF0743B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77B82F86-772C-41AE-90C9-AAD0BBF0743B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77B82F86-772C-41AE-90C9-AAD0BBF0743B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5508FCB4-2431-4877-8769-606AC29DE228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5508FCB4-2431-4877-8769-606AC29DE228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5508FCB4-2431-4877-8769-606AC29DE228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5508FCB4-2431-4877-8769-606AC29DE228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
