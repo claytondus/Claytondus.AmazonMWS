@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS", "Claytondus.AmazonMWS\Claytondus.AmazonMWS.csproj", "{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}"
 EndProject
@@ -16,9 +16,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Produc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.FbaInbound.Test", "Claytondus.AmazonMWS.FbaInbound.Test\Claytondus.AmazonMWS.FbaInbound.Test.csproj", "{77B82F86-772C-41AE-90C9-AAD0BBF0743B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Orders", "Claytondus.AmazonMWS.Orders\Claytondus.AmazonMWS.Orders.csproj", "{5508FCB4-2431-4877-8769-606AC29DE228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Orders", "Claytondus.AmazonMWS.Orders\Claytondus.AmazonMWS.Orders.csproj", "{5508FCB4-2431-4877-8769-606AC29DE228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Orders.Test", "Claytondus.AmazonMWS.Orders.Test\Claytondus.AmazonMWS.Orders.Test.csproj", "{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Orders.Test", "Claytondus.AmazonMWS.Orders.Test\Claytondus.AmazonMWS.Orders.Test.csproj", "{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaOutbound", "Claytondus.AmazonMWS.FbaOutbound\Claytondus.AmazonMWS.FbaOutbound.csproj", "{D27EB9CA-FCF5-4682-B6E6-87A9F8BF29CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaOutbound.Test", "Claytondus.AmazonMWS.FbaOutbound.Test\Claytondus.AmazonMWS.FbaOutbound.Test.csproj", "{4EB1B679-B583-47EC-9F35-36E3F15238AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,8 +66,19 @@ Global
 		{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27A98901-FFF6-47DD-B9DE-D1D4DDE6A4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D27EB9CA-FCF5-4682-B6E6-87A9F8BF29CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D27EB9CA-FCF5-4682-B6E6-87A9F8BF29CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D27EB9CA-FCF5-4682-B6E6-87A9F8BF29CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D27EB9CA-FCF5-4682-B6E6-87A9F8BF29CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB1B679-B583-47EC-9F35-36E3F15238AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB1B679-B583-47EC-9F35-36E3F15238AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB1B679-B583-47EC-9F35-36E3F15238AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB1B679-B583-47EC-9F35-36E3F15238AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4AAA85B5-1B33-4AF5-8310-B7CAD98369A2}
 	EndGlobalSection
 EndGlobal
