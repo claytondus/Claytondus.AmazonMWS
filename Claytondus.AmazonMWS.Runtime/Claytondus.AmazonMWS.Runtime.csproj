@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <PackageId>Claytondus.AmazonMWS.Runtime</PackageId>
-    <PackageVersion>0.2.0</PackageVersion>
+    <PackageVersion>0.3.0</PackageVersion>
     <Description>.NET Standard fork of MWS runtime</Description>
     <Authors>Amazon and Clayton Davis</Authors>
     <Copyright>Copyright 2017 (c) Amazon Technologies, Inc. and Clayton Davis. All rights reserved.</Copyright>
@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Nito.AsyncEx.Context" Version="1.1.0" />
     <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
   </ItemGroup>
 </Project>

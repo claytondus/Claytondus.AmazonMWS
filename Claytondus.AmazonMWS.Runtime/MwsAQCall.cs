@@ -19,7 +19,9 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Collections;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Xml;
+using Nito.AsyncEx;
 
 namespace Claytondus.AmazonMWS.Runtime
 {
@@ -71,7 +73,7 @@ namespace Claytondus.AmazonMWS.Runtime
                     {
                         requestStream.Write(requestData, 0, requestData.Length);
                     }
-                    using (HttpWebResponse httpResponse = request.GetResponseAsync().Result as HttpWebResponse)
+                    using (HttpWebResponse httpResponse = AsyncContext.Run(request.GetResponseAsync) as HttpWebResponse)
                     {
                         statusCode = httpResponse.StatusCode;
                         message = httpResponse.StatusDescription;
