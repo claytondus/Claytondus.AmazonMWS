@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS", "Claytondus.AmazonMWS\Claytondus.AmazonMWS.csproj", "{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}"
 EndProject
@@ -28,9 +28,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Mercha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.MerchantFulfillment.Test", "Claytondus.AmazonMWS.MerchantFulfillment.Test\Claytondus.AmazonMWS.MerchantFulfillment.Test.csproj", "{D6FC5C69-DB5D-4FC7-942B-44F1D2ACEBC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Finances", "Claytondus.AmazonMWS.Finances\Claytondus.AmazonMWS.Finances.csproj", "{5CC223E7-C4EC-43F7-B7EB-5896EC266838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Finances", "Claytondus.AmazonMWS.Finances\Claytondus.AmazonMWS.Finances.csproj", "{5CC223E7-C4EC-43F7-B7EB-5896EC266838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Finances.Test", "Claytondus.AmazonMWS.Finances.Test\Claytondus.AmazonMWS.Finances.Test.csproj", "{91424C92-97AB-4CAE-B5CB-3561B86CD29C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Finances.Test", "Claytondus.AmazonMWS.Finances.Test\Claytondus.AmazonMWS.Finances.Test.csproj", "{91424C92-97AB-4CAE-B5CB-3561B86CD29C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Sellers", "Claytondus.AmazonMWS.Sellers\Claytondus.AmazonMWS.Sellers.csproj", "{8E70C39D-3EF1-4867-80FB-F66519542D04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Sellers.Test", "Claytondus.AmazonMWS.Sellers.Test\Claytondus.AmazonMWS.Sellers.Test.csproj", "{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +102,14 @@ Global
 		{91424C92-97AB-4CAE-B5CB-3561B86CD29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91424C92-97AB-4CAE-B5CB-3561B86CD29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91424C92-97AB-4CAE-B5CB-3561B86CD29C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E70C39D-3EF1-4867-80FB-F66519542D04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E70C39D-3EF1-4867-80FB-F66519542D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E70C39D-3EF1-4867-80FB-F66519542D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E70C39D-3EF1-4867-80FB-F66519542D04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
