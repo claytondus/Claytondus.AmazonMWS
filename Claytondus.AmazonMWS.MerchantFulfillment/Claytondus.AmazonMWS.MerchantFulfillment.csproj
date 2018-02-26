@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <PackageId>Claytondus.AmazonMWS.MerchantFulfillment</PackageId>
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>0.1.1</PackageVersion>
     <Description>.NET Standard fork of Amazon MWS MerchantFulfillment client</Description>
     <Authors>Amazon and Clayton Davis</Authors>
     <Copyright>Copyright 2017 (c) Amazon Technologies, Inc. and Clayton Davis. All rights reserved.</Copyright>
@@ -12,6 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Claytondus.AmazonMWS.Runtime" Version="0.1.0" />
+    <PackageReference Include="Claytondus.AmazonMWS.Runtime" Version="0.3.0" />
   </ItemGroup>
 </Project>
