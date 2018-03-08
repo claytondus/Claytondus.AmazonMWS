@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2009-2015 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2016 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -8,16 +8,16 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
- * Marketplace Web Service Sellers
- * API Version: 2011-07-01
- * Library Version: 2015-06-18
- * Generated: Thu Jun 18 20:37:46 GMT 2015
+ * FBA Inventory Service MWS
+ * API Version: 2010-10-01
+ * Library Version: 2014-09-30
+ * Generated: Mon Mar 21 09:01:30 PDT 2016
  */
 
 using System;
-using Claytondus.AmazonMWS.Sellers.Model;
+using Claytondus.AmazonMWS.FbaInventory.Model;
 
-namespace Claytondus.AmazonMWS.Sellers.Test {
+namespace Claytondus.AmazonMWS.FbaInventory.Test {
 
     /// <summary>
     /// Runnable sample code to demonstrate usage of the C# client.
@@ -26,17 +26,17 @@ namespace Claytondus.AmazonMWS.Sellers.Test {
     /// and mark this class as the startup object. Then, replace
     /// parameters below with sensible values and run.
     /// </summary>
-    public class MarketplaceWebServiceSellersSample {
+    public class FBAInventoryServiceMWSSample {
 
         public static void Main(string[] args)
         {
             // TODO: Set the below configuration variables before attempting to run
 
             // Developer AWS access key
-            string accessKey = "AKIAJTIETNNID4BMNRTA";
+            string accessKey = "replaceWithAccessKey";
 
             // Developer AWS secret key
-            string secretKey = "8mysbOTm07xaq7b4G0st07SJeb+6qQ5ST8YKAwYa";
+            string secretKey = "replaceWithSecretKey";
 
             // The client application name
             string appName = "CSharpSampleCode";
@@ -46,16 +46,16 @@ namespace Claytondus.AmazonMWS.Sellers.Test {
 
             // The endpoint for region service and version (see developer guide)
             // ex: https://mws.amazonservices.com
-            string serviceURL = "https://mws.amazonservices.com";
+            string serviceURL = "replaceWithServiceURL";
 
             // Create a configuration object
-            MarketplaceWebServiceSellersConfig config = new MarketplaceWebServiceSellersConfig();
+            FBAInventoryServiceMWSConfig config = new FBAInventoryServiceMWSConfig();
             config.ServiceURL = serviceURL;
             // Set other client connection configurations here if needed
             // Create the client itself
-            Claytondus.AmazonMWS.Sellers.MarketplaceWebServiceSellers client = new MarketplaceWebServiceSellersClient(appName, appVersion, accessKey, secretKey, config);
+            FBAInventoryServiceMWS client = new FBAInventoryServiceMWSClient(accessKey, secretKey, appName, appVersion, config);
 
-            MarketplaceWebServiceSellersSample sample = new MarketplaceWebServiceSellersSample(client);
+            FBAInventoryServiceMWSSample sample = new FBAInventoryServiceMWSSample(client);
 
             // Uncomment the operation you'd like to test here
             // TODO: Modify the request created in the Invoke method to be valid
@@ -64,8 +64,8 @@ namespace Claytondus.AmazonMWS.Sellers.Test {
             {
                 IMWSResponse response = null;
                 // response = sample.InvokeGetServiceStatus();
-                 response = sample.InvokeListMarketplaceParticipations();
-                // response = sample.InvokeListMarketplaceParticipationsByNextToken();
+                // response = sample.InvokeListInventorySupply();
+                // response = sample.InvokeListInventorySupplyByNextToken();
                 Console.WriteLine("Response:");
                 ResponseHeaderMetadata rhmd = response.ResponseHeaderMetadata;
                 // We recommend logging the request id and timestamp of every call.
@@ -74,7 +74,7 @@ namespace Claytondus.AmazonMWS.Sellers.Test {
                 string responseXml = response.ToXML();
                 Console.WriteLine(responseXml);
             }
-            catch (MarketplaceWebServiceSellersException ex)
+            catch (FBAInventoryServiceMWSException ex)
             {
                 // Exception properties are important for diagnostics.
                 ResponseHeaderMetadata rhmd = ex.ResponseHeaderMetadata;
@@ -92,9 +92,9 @@ namespace Claytondus.AmazonMWS.Sellers.Test {
             }
         }
 
-        private readonly Claytondus.AmazonMWS.Sellers.MarketplaceWebServiceSellers client;
+        private readonly FBAInventoryServiceMWS client;
 
-        public MarketplaceWebServiceSellersSample(Claytondus.AmazonMWS.Sellers.MarketplaceWebServiceSellers client)
+        public FBAInventoryServiceMWSSample(FBAInventoryServiceMWS client)
         {
             this.client = client;
         }
@@ -107,31 +107,45 @@ namespace Claytondus.AmazonMWS.Sellers.Test {
             request.SellerId = sellerId;
             string mwsAuthToken = "example";
             request.MWSAuthToken = mwsAuthToken;
+            string marketplace = "example";
+            request.Marketplace = marketplace;
             return this.client.GetServiceStatus(request);
         }
 
-        public ListMarketplaceParticipationsResponse InvokeListMarketplaceParticipations()
+        public ListInventorySupplyResponse InvokeListInventorySupply()
         {
             // Create a request.
-            ListMarketplaceParticipationsRequest request = new ListMarketplaceParticipationsRequest();
+            ListInventorySupplyRequest request = new ListInventorySupplyRequest();
             string sellerId = "example";
             request.SellerId = sellerId;
             string mwsAuthToken = "example";
             request.MWSAuthToken = mwsAuthToken;
-            return this.client.ListMarketplaceParticipations(request);
+            string marketplace = "example";
+            request.Marketplace = marketplace;
+            string marketplaceId = "example";
+            request.MarketplaceId = marketplaceId;
+            SellerSkuList sellerSkus = new SellerSkuList();
+            request.SellerSkus = sellerSkus;
+            DateTime queryStartDateTime = new DateTime();
+            request.QueryStartDateTime = queryStartDateTime;
+            string responseGroup = "example";
+            request.ResponseGroup = responseGroup;
+            return this.client.ListInventorySupply(request);
         }
 
-        public ListMarketplaceParticipationsByNextTokenResponse InvokeListMarketplaceParticipationsByNextToken()
+        public ListInventorySupplyByNextTokenResponse InvokeListInventorySupplyByNextToken()
         {
             // Create a request.
-            ListMarketplaceParticipationsByNextTokenRequest request = new ListMarketplaceParticipationsByNextTokenRequest();
+            ListInventorySupplyByNextTokenRequest request = new ListInventorySupplyByNextTokenRequest();
             string sellerId = "example";
             request.SellerId = sellerId;
             string mwsAuthToken = "example";
             request.MWSAuthToken = mwsAuthToken;
+            string marketplace = "example";
+            request.Marketplace = marketplace;
             string nextToken = "example";
             request.NextToken = nextToken;
-            return this.client.ListMarketplaceParticipationsByNextToken(request);
+            return this.client.ListInventorySupplyByNextToken(request);
         }
 
 

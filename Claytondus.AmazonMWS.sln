@@ -32,9 +32,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Financ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Finances.Test", "Claytondus.AmazonMWS.Finances.Test\Claytondus.AmazonMWS.Finances.Test.csproj", "{91424C92-97AB-4CAE-B5CB-3561B86CD29C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Sellers", "Claytondus.AmazonMWS.Sellers\Claytondus.AmazonMWS.Sellers.csproj", "{8E70C39D-3EF1-4867-80FB-F66519542D04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Sellers", "Claytondus.AmazonMWS.Sellers\Claytondus.AmazonMWS.Sellers.csproj", "{8E70C39D-3EF1-4867-80FB-F66519542D04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Sellers.Test", "Claytondus.AmazonMWS.Sellers.Test\Claytondus.AmazonMWS.Sellers.Test.csproj", "{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Sellers.Test", "Claytondus.AmazonMWS.Sellers.Test\Claytondus.AmazonMWS.Sellers.Test.csproj", "{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaInventory", "Claytondus.AmazonMWS.FbaInventory\Claytondus.AmazonMWS.FbaInventory.csproj", "{B936ADE1-F699-4455-ACF7-C8004B96C99F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaInventory.Test", "Claytondus.AmazonMWS.FbaInventory.Test\Claytondus.AmazonMWS.FbaInventory.Test.csproj", "{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +114,14 @@ Global
 		{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B936ADE1-F699-4455-ACF7-C8004B96C99F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B936ADE1-F699-4455-ACF7-C8004B96C99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B936ADE1-F699-4455-ACF7-C8004B96C99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B936ADE1-F699-4455-ACF7-C8004B96C99F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
