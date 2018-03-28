@@ -20,9 +20,6 @@
     <PackageReference Include="System.Reflection.Primitives" Version="4.3.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='net46'">
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Nito.AsyncEx.Context" Version="1.1.0" />
     <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
