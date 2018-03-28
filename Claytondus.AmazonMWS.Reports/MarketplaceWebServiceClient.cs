@@ -17,6 +17,7 @@
 
 using System;
 using System.Reflection;
+using System.Web;
 using System.Net;
 using System.Text;
 using System.IO;
@@ -25,11 +26,14 @@ using System.Security.Cryptography;
 using System.Globalization;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-using Claytondus.AmazonMWS.Feeds.Model;
-using Claytondus.AmazonMWS.Feeds.Attributes;
-using System.Threading.Tasks;
+using MarketplaceWebService.Model;
+using MarketplaceWebService;
+using MarketplaceWebService.Attributes;
+using System.Reflection;
+using System.Collections.Specialized;
 
-namespace Claytondus.AmazonMWS.Feeds
+
+namespace MarketplaceWebService
 {
    /**
 
@@ -125,8 +129,8 @@ namespace Claytondus.AmazonMWS.Feeds
                 applicationName,
                 applicationVersion,
                 "C#",
-                "CLI", ".NET Standard 1.5",
-                "Platform", ".NET Standard 1.5",
+                "CLI", Environment.Version.ToString(),
+                "Platform", Environment.OSVersion.Platform + "/" + Environment.OSVersion.Version,
                 "MWSClientVersion", mwsClientVersion );
         }
 
@@ -146,9 +150,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// streaming fashion.
         /// 
         /// </remarks>
-        public async Task<GetReportResponse> GetReport(GetReportRequest request)
+        public GetReportResponse GetReport(GetReportRequest request)
         {
-            return await Invoke<GetReportResponse, GetReportRequest>(ConvertGetReport(request), request);
+            return Invoke<GetReportResponse, GetReportRequest>(ConvertGetReport(request), request);
         }
 
         
@@ -161,9 +165,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// returns the number of report schedules
         /// 
         /// </remarks>
-        public async Task<GetReportScheduleCountResponse> GetReportScheduleCount(GetReportScheduleCountRequest request)
+        public GetReportScheduleCountResponse GetReportScheduleCount(GetReportScheduleCountRequest request)
         {
-            return await Invoke<GetReportScheduleCountResponse>(ConvertGetReportScheduleCount(request));
+            return Invoke<GetReportScheduleCountResponse>(ConvertGetReportScheduleCount(request));
         }
 
         
@@ -176,9 +180,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve
         /// 
         /// </remarks>
-        public async Task<GetReportRequestListByNextTokenResponse> GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
+        public GetReportRequestListByNextTokenResponse GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
         {
-            return await Invoke<GetReportRequestListByNextTokenResponse>(ConvertGetReportRequestListByNextToken(request));
+            return Invoke<GetReportRequestListByNextTokenResponse>(ConvertGetReportRequestListByNextToken(request));
         }
 
         
@@ -191,9 +195,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// The UpdateReportAcknowledgements operation updates the acknowledged status of one or more reports.
         /// 
         /// </remarks>
-        public async Task<UpdateReportAcknowledgementsResponse> UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
+        public UpdateReportAcknowledgementsResponse UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
         {
-            return await Invoke<UpdateReportAcknowledgementsResponse>(ConvertUpdateReportAcknowledgements(request));
+            return Invoke<UpdateReportAcknowledgementsResponse>(ConvertUpdateReportAcknowledgements(request));
         }
 
         
@@ -210,9 +214,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// caution (the default is false).
         /// 
         /// </remarks>
-        public async Task<SubmitFeedResponse> SubmitFeed(SubmitFeedRequest request)
+        public SubmitFeedResponse SubmitFeed(SubmitFeedRequest request)
         {
-            return await Invoke<SubmitFeedResponse,SubmitFeedRequest>(ConvertSubmitFeed(request), request);
+            return Invoke<SubmitFeedResponse,SubmitFeedRequest>(ConvertSubmitFeed(request), request);
         }
 
         
@@ -227,9 +231,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// regardless of acknowledgement status
         /// 
         /// </remarks>
-        public async Task<GetReportCountResponse> GetReportCount(GetReportCountRequest request)
+        public GetReportCountResponse GetReportCount(GetReportCountRequest request)
         {
-            return await Invoke<GetReportCountResponse>(ConvertGetReportCount(request));
+            return Invoke<GetReportCountResponse>(ConvertGetReportCount(request));
         }
 
         
@@ -242,9 +246,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve
         /// 
         /// </remarks>
-        public async Task<GetFeedSubmissionListByNextTokenResponse> GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
+        public GetFeedSubmissionListByNextTokenResponse GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
         {
-            return await Invoke<GetFeedSubmissionListByNextTokenResponse>(ConvertGetFeedSubmissionListByNextToken(request));
+            return Invoke<GetFeedSubmissionListByNextTokenResponse>(ConvertGetFeedSubmissionListByNextToken(request));
         }
 
         
@@ -258,9 +262,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// last 30 days that have not started processing
         /// 
         /// </remarks>
-        public async Task<CancelFeedSubmissionsResponse> CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
+        public CancelFeedSubmissionsResponse CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
         {
-            return await Invoke<CancelFeedSubmissionsResponse>(ConvertCancelFeedSubmissions(request));
+            return Invoke<CancelFeedSubmissionsResponse>(ConvertCancelFeedSubmissions(request));
         }
 
         
@@ -273,9 +277,9 @@ namespace Claytondus.AmazonMWS.Feeds
         /// requests the generation of a report
         /// 
         /// </remarks>
-        public async Task<RequestReportResponse> RequestReport(RequestReportRequest request)
+        public RequestReportResponse RequestReport(RequestReportRequest request)
         {
-            return await Invoke<RequestReportResponse>(ConvertRequestReport(request));
+            return Invoke<RequestReportResponse>(ConvertRequestReport(request));
         }
 
         
@@ -288,171 +292,171 @@ namespace Claytondus.AmazonMWS.Feeds
         /// returns the number of feeds matching all of the specified criteria
         /// 
         /// </remarks>
-        public async Task<GetFeedSubmissionCountResponse> GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
+        public GetFeedSubmissionCountResponse GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
         {
-            return await Invoke<GetFeedSubmissionCountResponse>(ConvertGetFeedSubmissionCount(request));
+            return Invoke<GetFeedSubmissionCountResponse>(ConvertGetFeedSubmissionCount(request));
         }
 
+        
+        /// <summary>
+        /// Cancel Report Requests 
+        /// </summary>
+        /// <param name="request">Cancel Report Requests  request</param>
+        /// <returns>Cancel Report Requests  Response from the service</returns>
+        /// <remarks>
+        /// cancels report requests that have not yet started processing,
+        /// by default all those within the last 90 days
+        /// 
+        /// </remarks>
+        public CancelReportRequestsResponse CancelReportRequests(CancelReportRequestsRequest request)
+        {
+            return Invoke<CancelReportRequestsResponse>(ConvertCancelReportRequests(request));
+        }
 
-		/// <summary>
-		/// Cancel Report Requests 
-		/// </summary>
-		/// <param name="request">Cancel Report Requests  request</param>
-		/// <returns>Cancel Report Requests  Response from the service</returns>
-		/// <remarks>
-		/// cancels report requests that have not yet started processing,
-		/// by default all those within the last 90 days
-		/// 
-		/// </remarks>
-		public async Task<CancelReportRequestsResponse> CancelReportRequests(CancelReportRequestsRequest request)
-		{
-			return await Invoke<CancelReportRequestsResponse>(ConvertCancelReportRequests(request));
-		}
+        
+        /// <summary>
+        /// Get Report List 
+        /// </summary>
+        /// <param name="request">Get Report List  request</param>
+        /// <returns>Get Report List  Response from the service</returns>
+        /// <remarks>
+        /// returns a list of reports; by default the most recent ten reports,
+        /// regardless of their acknowledgement status
+        /// 
+        /// </remarks>
+        public GetReportListResponse GetReportList(GetReportListRequest request)
+        {
+            return Invoke<GetReportListResponse>(ConvertGetReportList(request));
+        }
 
+        
+        /// <summary>
+        /// Get Feed Submission Result 
+        /// </summary>
+        /// <param name="request">Get Feed Submission Result  request</param>
+        /// <returns>Get Feed Submission Result  Response from the service</returns>
+        /// <remarks>
+        /// retrieves the feed processing report
+        /// 
+        /// </remarks>
+        public GetFeedSubmissionResultResponse GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
+        {
+            return Invoke<GetFeedSubmissionResultResponse, GetFeedSubmissionResultRequest>(ConvertGetFeedSubmissionResult(request), request);
+        }
 
-		/// <summary>
-		/// Get Report List 
-		/// </summary>
-		/// <param name="request">Get Report List  request</param>
-		/// <returns>Get Report List  Response from the service</returns>
-		/// <remarks>
-		/// returns a list of reports; by default the most recent ten reports,
-		/// regardless of their acknowledgement status
-		/// 
-		/// </remarks>
-		public async Task<GetReportListResponse> GetReportList(GetReportListRequest request)
-		{
-			return await Invoke<GetReportListResponse>(ConvertGetReportList(request));
-		}
+        
+        /// <summary>
+        /// Get Feed Submission List 
+        /// </summary>
+        /// <param name="request">Get Feed Submission List  request</param>
+        /// <returns>Get Feed Submission List  Response from the service</returns>
+        /// <remarks>
+        /// returns a list of feed submission identifiers and their associated metadata
+        /// 
+        /// </remarks>
+        public GetFeedSubmissionListResponse GetFeedSubmissionList(GetFeedSubmissionListRequest request)
+        {
+            return Invoke<GetFeedSubmissionListResponse>(ConvertGetFeedSubmissionList(request));
+        }
 
+        
+        /// <summary>
+        /// Get Report Request List 
+        /// </summary>
+        /// <param name="request">Get Report Request List  request</param>
+        /// <returns>Get Report Request List  Response from the service</returns>
+        /// <remarks>
+        /// returns a list of report requests ids and their associated metadata
+        /// 
+        /// </remarks>
+        public GetReportRequestListResponse GetReportRequestList(GetReportRequestListRequest request)
+        {
+            return Invoke<GetReportRequestListResponse>(ConvertGetReportRequestList(request));
+        }
 
-		/// <summary>
-		/// Get Feed Submission Result 
-		/// </summary>
-		/// <param name="request">Get Feed Submission Result  request</param>
-		/// <returns>Get Feed Submission Result  Response from the service</returns>
-		/// <remarks>
-		/// retrieves the feed processing report
-		/// 
-		/// </remarks>
-		public async Task<GetFeedSubmissionResultResponse> GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
-		{
-			return await Invoke<GetFeedSubmissionResultResponse, GetFeedSubmissionResultRequest>(ConvertGetFeedSubmissionResult(request), request);
-		}
+        
+        /// <summary>
+        /// Get Report Schedule List By Next Token 
+        /// </summary>
+        /// <param name="request">Get Report Schedule List By Next Token  request</param>
+        /// <returns>Get Report Schedule List By Next Token  Response from the service</returns>
+        /// <remarks>
+        /// retrieve the next batch of list items and if there are more items to retrieve
+        /// 
+        /// </remarks>
+        public GetReportScheduleListByNextTokenResponse GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
+        {
+            return Invoke<GetReportScheduleListByNextTokenResponse>(ConvertGetReportScheduleListByNextToken(request));
+        }
 
+        
+        /// <summary>
+        /// Get Report List By Next Token 
+        /// </summary>
+        /// <param name="request">Get Report List By Next Token  request</param>
+        /// <returns>Get Report List By Next Token  Response from the service</returns>
+        /// <remarks>
+        /// retrieve the next batch of list items and if there are more items to retrieve
+        /// 
+        /// </remarks>
+        public GetReportListByNextTokenResponse GetReportListByNextToken(GetReportListByNextTokenRequest request)
+        {
+            return Invoke<GetReportListByNextTokenResponse>(ConvertGetReportListByNextToken(request));
+        }
 
-		/// <summary>
-		/// Get Feed Submission List 
-		/// </summary>
-		/// <param name="request">Get Feed Submission List  request</param>
-		/// <returns>Get Feed Submission List  Response from the service</returns>
-		/// <remarks>
-		/// returns a list of feed submission identifiers and their associated metadata
-		/// 
-		/// </remarks>
-		public async Task<GetFeedSubmissionListResponse> GetFeedSubmissionList(GetFeedSubmissionListRequest request)
-		{
-			return await Invoke<GetFeedSubmissionListResponse>(ConvertGetFeedSubmissionList(request));
-		}
+        
+        /// <summary>
+        /// Manage Report Schedule 
+        /// </summary>
+        /// <param name="request">Manage Report Schedule  request</param>
+        /// <returns>Manage Report Schedule  Response from the service</returns>
+        /// <remarks>
+        /// Creates, updates, or deletes a report schedule
+        /// for a given report type, such as order reports in particular.
+        /// 
+        /// </remarks>
+        public ManageReportScheduleResponse ManageReportSchedule(ManageReportScheduleRequest request)
+        {
+            return Invoke<ManageReportScheduleResponse>(ConvertManageReportSchedule(request));
+        }
 
+        
+        /// <summary>
+        /// Get Report Request Count 
+        /// </summary>
+        /// <param name="request">Get Report Request Count  request</param>
+        /// <returns>Get Report Request Count  Response from the service</returns>
+        /// <remarks>
+        /// returns a count of report requests; by default all the report
+        /// requests in the last 90 days
+        /// 
+        /// </remarks>
+        public GetReportRequestCountResponse GetReportRequestCount(GetReportRequestCountRequest request)
+        {
+            return Invoke<GetReportRequestCountResponse>(ConvertGetReportRequestCount(request));
+        }
 
-		/// <summary>
-		/// Get Report Request List 
-		/// </summary>
-		/// <param name="request">Get Report Request List  request</param>
-		/// <returns>Get Report Request List  Response from the service</returns>
-		/// <remarks>
-		/// returns a list of report requests ids and their associated metadata
-		/// 
-		/// </remarks>
-		public async Task<GetReportRequestListResponse> GetReportRequestList(GetReportRequestListRequest request)
-		{
-			return await Invoke<GetReportRequestListResponse>(ConvertGetReportRequestList(request));
-		}
+        
+        /// <summary>
+        /// Get Report Schedule List 
+        /// </summary>
+        /// <param name="request">Get Report Schedule List  request</param>
+        /// <returns>Get Report Schedule List  Response from the service</returns>
+        /// <remarks>
+        /// returns the list of report schedules
+        /// 
+        /// </remarks>
+        public GetReportScheduleListResponse GetReportScheduleList(GetReportScheduleListRequest request)
+        {
+            return Invoke<GetReportScheduleListResponse>(ConvertGetReportScheduleList(request));
+        }
 
+        // Private API ------------------------------------------------------------//
 
-		/// <summary>
-		/// Get Report Schedule List By Next Token 
-		/// </summary>
-		/// <param name="request">Get Report Schedule List By Next Token  request</param>
-		/// <returns>Get Report Schedule List By Next Token  Response from the service</returns>
-		/// <remarks>
-		/// retrieve the next batch of list items and if there are more items to retrieve
-		/// 
-		/// </remarks>
-		public async Task<GetReportScheduleListByNextTokenResponse> GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
-		{
-			return await Invoke<GetReportScheduleListByNextTokenResponse>(ConvertGetReportScheduleListByNextToken(request));
-		}
-
-
-		/// <summary>
-		/// Get Report List By Next Token 
-		/// </summary>
-		/// <param name="request">Get Report List By Next Token  request</param>
-		/// <returns>Get Report List By Next Token  Response from the service</returns>
-		/// <remarks>
-		/// retrieve the next batch of list items and if there are more items to retrieve
-		/// 
-		/// </remarks>
-		public async Task<GetReportListByNextTokenResponse> GetReportListByNextToken(GetReportListByNextTokenRequest request)
-		{
-			return await Invoke<GetReportListByNextTokenResponse>(ConvertGetReportListByNextToken(request));
-		}
-
-
-		/// <summary>
-		/// Manage Report Schedule 
-		/// </summary>
-		/// <param name="request">Manage Report Schedule  request</param>
-		/// <returns>Manage Report Schedule  Response from the service</returns>
-		/// <remarks>
-		/// Creates, updates, or deletes a report schedule
-		/// for a given report type, such as order reports in particular.
-		/// 
-		/// </remarks>
-		public async Task<ManageReportScheduleResponse> ManageReportSchedule(ManageReportScheduleRequest request)
-		{
-			return await Invoke<ManageReportScheduleResponse>(ConvertManageReportSchedule(request));
-		}
-
-
-		/// <summary>
-		/// Get Report Request Count 
-		/// </summary>
-		/// <param name="request">Get Report Request Count  request</param>
-		/// <returns>Get Report Request Count  Response from the service</returns>
-		/// <remarks>
-		/// returns a count of report requests; by default all the report
-		/// requests in the last 90 days
-		/// 
-		/// </remarks>
-		public async Task<GetReportRequestCountResponse> GetReportRequestCount(GetReportRequestCountRequest request)
-		{
-			return await Invoke<GetReportRequestCountResponse>(ConvertGetReportRequestCount(request));
-		}
-
-
-		/// <summary>
-		/// Get Report Schedule List 
-		/// </summary>
-		/// <param name="request">Get Report Schedule List  request</param>
-		/// <returns>Get Report Schedule List  Response from the service</returns>
-		/// <remarks>
-		/// returns the list of report schedules
-		/// 
-		/// </remarks>
-		public async Task<GetReportScheduleListResponse> GetReportScheduleList(GetReportScheduleListRequest request)
-		{
-			return await Invoke<GetReportScheduleListResponse>(ConvertGetReportScheduleList(request));
-		}
-
-		// Private API ------------------------------------------------------------//
-
-		private HttpWebRequest ConfigureWebRequest(String queryParameters, ContentType contentType)
+        private HttpWebRequest ConfigureWebRequest(String queryParameters, ContentType contentType)
         {
             string serviceUrl;
-            if (config.ServiceURL.EndsWith("/", StringComparison.Ordinal))
+            if (config.ServiceURL.EndsWith("/"))
             {
                 serviceUrl = config.ServiceURL.Substring(0, config.ServiceURL.Length - 1);
             }
@@ -466,18 +470,18 @@ namespace Claytondus.AmazonMWS.Feeds
 
             if (config.IsSetProxyHost())
             {
-                //request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
+                request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
             }
 
-            //request.UserAgent = config.UserAgent;
+            request.UserAgent = config.UserAgent;
 
             request.Method = "POST";
-            //request.Timeout = config.RequestTimeout;
+            request.Timeout = config.RequestTimeout;
 
             request.ContentType = contentType.ToString();
 
-            //request.SendChunked = true;
-            //System.Net.ServicePointManager.Expect100Continue = false;
+            request.SendChunked = true;
+            System.Net.ServicePointManager.Expect100Continue = false;
 
             return request;
         }
@@ -492,26 +496,26 @@ namespace Claytondus.AmazonMWS.Feeds
 
             if (config.IsSetProxyHost())
             {
-                //request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
+                request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
             }
-            //request.UserAgent = config.UserAgent;
+            request.UserAgent = config.UserAgent;
             request.Method = "POST";
-            //request.Timeout = 50000;
+            request.Timeout = 50000;
             request.ContentType = "application/x-www-form-urlencoded; charset=utf-8";
-            //request.ContentLength = contentLength;
+            request.ContentLength = contentLength;
 
             return request;
         }
 
-        private async Task<T> Invoke<T>(IDictionary<String, String> parameters)
+        private T Invoke<T>(IDictionary<String, String> parameters)
         {
-            return await Invoke<T, Object>(parameters, null);
+            return Invoke<T, Object>(parameters, null);
         }
 
         /**
          * Invoke request and return response
          */
-        private async Task<T> Invoke<T, K>(IDictionary<String, String> parameters, K clazz)
+        private T Invoke<T, K>(IDictionary<String, String> parameters, K clazz)
         {
 
             String actionName = parameters["Action"];
@@ -569,7 +573,7 @@ namespace Claytondus.AmazonMWS.Feeds
 
                     WebHeaderCollection headers = request.Headers;
 
-					using (Stream requestStream = await request.GetRequestStreamAsync())
+                    using (Stream requestStream = request.GetRequestStream())
                     {
                         switch (requestType)
                         {
@@ -582,18 +586,16 @@ namespace Claytondus.AmazonMWS.Feeds
                                 requestStream.Write(requestData, 0, requestData.Length);
                                 break;
                         }
+                        requestStream.Close();
                     }
 
-                    using (HttpWebResponse httpResponse = await request.GetResponseAsync() as HttpWebResponse)
+                    using (HttpWebResponse httpResponse = request.GetResponse() as HttpWebResponse)
                     {
                         statusCode = httpResponse.StatusCode;
                         rhm = new ResponseHeaderMetadata(
-                            httpResponse.Headers["x-mws-request-id"],
-                            httpResponse.Headers["x-mws-response-context"],
-                            httpResponse.Headers["x-mws-timestamp"],
-                            httpResponse.Headers["x-mws-quota-max"],
-                            httpResponse.Headers["x-mws-quota-remaining"],
-                            httpResponse.Headers["x-mws-quota-resetsOn"]);
+                            httpResponse.GetResponseHeader("x-mws-request-id"),
+                            httpResponse.GetResponseHeader("x-mws-response-context"),
+                            httpResponse.GetResponseHeader("x-mws-timestamp"));
 
                         if (isStreamingResponse && statusCode == HttpStatusCode.OK)
                         {
@@ -700,9 +702,8 @@ namespace Claytondus.AmazonMWS.Feeds
                 return false;
             }
 
-			MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)
-				type.GetTypeInfo().GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
-                
+            MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)
+                Attribute.GetCustomAttribute(type, typeof(MarketplaceWebServiceAttribute));
 
             if (attribute == null)
             {
@@ -725,9 +726,9 @@ namespace Claytondus.AmazonMWS.Feeds
                 return RequestType.DEFAULT;
 
             MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)
-				type.GetTypeInfo().GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
+                Attribute.GetCustomAttribute(type, typeof(MarketplaceWebServiceAttribute));
 
-			return attribute.RequestType;
+            return attribute.RequestType;
         }
 
         /**
@@ -735,7 +736,7 @@ namespace Claytondus.AmazonMWS.Feeds
          */
         private Stream GetTransferStream(object request, StreamType streamType)
         {
-			if (request == null || !request.GetType().GetTypeInfo().IsClass)
+            if (request == null || !request.GetType().IsClass)
             {
                 throw new ArgumentException("request must be a class reference");
             }
@@ -745,8 +746,7 @@ namespace Claytondus.AmazonMWS.Feeds
             foreach (MethodInfo mi in request.GetType().GetMethods())
             {
                 MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)
-					mi.GetCustomAttribute(typeof(MarketplaceWebServiceStreamAttribute));
-
+                    Attribute.GetCustomAttribute(mi, typeof(MarketplaceWebServiceStreamAttribute));
 
                 if (attribute != null && attribute.StreamType == streamType)
                 {
@@ -757,7 +757,7 @@ namespace Claytondus.AmazonMWS.Feeds
             foreach (PropertyInfo pi in request.GetType().GetProperties())
             {
                 MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)
-					pi.GetCustomAttribute(typeof(MarketplaceWebServiceStreamAttribute));                   
+                   Attribute.GetCustomAttribute(pi, typeof(MarketplaceWebServiceStreamAttribute));
 
                 if (attribute != null && attribute.StreamType == streamType)
                 {
@@ -823,7 +823,7 @@ namespace Claytondus.AmazonMWS.Feeds
             receiverStream.Position = 0;
 
             WebHeaderCollection headers = webResponse.Headers;
-            string receivedContentMD5 = headers["Content-MD5"];
+            string receivedContentMD5 = headers.Get("Content-MD5");
             string expectedContentMD5 = CalculateContentMD5(receiverStream);
 
             receiverStream.Position = 0;
@@ -836,8 +836,8 @@ namespace Claytondus.AmazonMWS.Feeds
             }
 
             IDictionary<String, String> parameters = new Dictionary<String, String>();
-            parameters.Add("RequestId", headers["x-amz-request-id"]);
-            parameters.Add("ContentMD5", headers["Content-MD5"]);
+            parameters.Add("RequestId", headers.Get("x-amz-request-id"));
+            parameters.Add("ContentMD5", headers.Get("Content-MD5"));
 
             return DeserializeStreamingResponse<T>(parameters);
         }
@@ -847,8 +847,8 @@ namespace Claytondus.AmazonMWS.Feeds
          */
         public static string CalculateContentMD5(Stream content)
         {
-			var md5 = MD5.Create();
-			byte[] hash = md5.ComputeHash(content);
+            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
+            byte[] hash = provider.ComputeHash(content);
             return Convert.ToBase64String(hash);
         }
 
@@ -1005,7 +1005,7 @@ namespace Claytondus.AmazonMWS.Feeds
             if ("2".Equals(signatureVersion))
             {
                 String signatureMethod = config.SignatureMethod;
-				algorithm = new HMACSHA256();
+                algorithm = KeyedHashAlgorithm.Create(signatureMethod.ToUpper());
                 parameters.Add("SignatureMethod", signatureMethod);
                 stringToSign = CalculateStringToSignV2(parameters);
             }

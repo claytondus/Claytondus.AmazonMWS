@@ -36,9 +36,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Seller
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Sellers.Test", "Claytondus.AmazonMWS.Sellers.Test\Claytondus.AmazonMWS.Sellers.Test.csproj", "{6C5F9B5D-0EC8-407E-A891-8C785E1C31D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaInventory", "Claytondus.AmazonMWS.FbaInventory\Claytondus.AmazonMWS.FbaInventory.csproj", "{B936ADE1-F699-4455-ACF7-C8004B96C99F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.FbaInventory", "Claytondus.AmazonMWS.FbaInventory\Claytondus.AmazonMWS.FbaInventory.csproj", "{B936ADE1-F699-4455-ACF7-C8004B96C99F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.FbaInventory.Test", "Claytondus.AmazonMWS.FbaInventory.Test\Claytondus.AmazonMWS.FbaInventory.Test.csproj", "{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.FbaInventory.Test", "Claytondus.AmazonMWS.FbaInventory.Test\Claytondus.AmazonMWS.FbaInventory.Test.csproj", "{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Feeds.Test", "Claytondus.AmazonMWS.Feeds.Test\Claytondus.AmazonMWS.Feeds.Test.csproj", "{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -122,6 +124,10 @@ Global
 		{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7DEB422-36CC-4EFF-8F02-59BF5C68FE20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

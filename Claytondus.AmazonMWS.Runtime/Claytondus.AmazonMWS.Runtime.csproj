@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFrameworks>netcoreapp1.1;netstandard2.0;net46</TargetFrameworks>
     <PackageId>Claytondus.AmazonMWS.Runtime</PackageId>
-    <PackageVersion>0.3.0</PackageVersion>
+    <PackageVersion>0.4.0</PackageVersion>
     <Description>.NET Standard fork of MWS runtime</Description>
     <Authors>Amazon and Clayton Davis</Authors>
     <Copyright>Copyright 2017 (c) Amazon Technologies, Inc. and Clayton Davis. All rights reserved.</Copyright>
@@ -20,7 +20,7 @@
     <PackageReference Include="System.Reflection.Primitives" Version="4.3.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net46'">
   </ItemGroup>
 
   <ItemGroup>

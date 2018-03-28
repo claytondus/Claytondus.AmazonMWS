@@ -16,46 +16,55 @@
 
 
 using System;
-using System.Text;
+using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Claytondus.AmazonMWS.Feeds.Model
 {
-  public class ResponseHeaderMetadata
-  {
-    private String requestId;
-    private String responseContext;
-    private String timestamp;
-
-    public ResponseHeaderMetadata() 
+    public class ResponseHeaderMetadata
     {
-      requestId = responseContext = timestamp = null;
-    }
+        private readonly double _quotaMax;
+        private readonly double _quotaRemaining;
+        private readonly DateTime _quotaResetsOn;
 
-    public ResponseHeaderMetadata(String requestId, String responseContext, String timestamp)
-    {
-      this.requestId = requestId;
-      this.responseContext = responseContext;
-      this.timestamp = timestamp;
-    }
+        public ResponseHeaderMetadata()
+        {
+            RequestId = ResponseContext = Timestamp = null;
+        }
 
-    public String RequestId
-    {
-      get { return this.requestId; }
-    }
+        public ResponseHeaderMetadata(string requestId, string responseContext, string timestamp)
+        {
+            RequestId = requestId;
+            ResponseContext = responseContext;
+            Timestamp = timestamp;
+        }
 
-    public String ResponseContext
-    {
-      get { return this.responseContext; }
-    }
+        public ResponseHeaderMetadata(string requestId, string responseContext, string timestamp, string quotaMax,
+            string quotaRemaining, string quotaResetsOn) : this(requestId, responseContext, timestamp)
+        {
+            double.TryParse(quotaMax, out _quotaMax);
+            double.TryParse(quotaRemaining, out _quotaRemaining);
+            DateTime.TryParse(quotaResetsOn, CultureInfo.InvariantCulture, DateTimeStyles.None, out _quotaResetsOn);
+        }
 
-    public String Timestamp
-    {
-      get { return this.timestamp; }
-    }
+        public string RequestId { get; }
 
-    public override string ToString() 
-    {
-      return "[RequestId: " + requestId + ", ResponseContext: " + responseContext + ", Timestamp: " + timestamp + "]";
+        public string ResponseContext { get; }
+
+        public string Timestamp { get; }
+
+        public double? QuotaMax => _quotaMax;
+
+        public double? QuotaRemaining => _quotaRemaining;
+
+        public DateTime? QuotaResetsOn => _quotaResetsOn;
+
+        
+
+        public override string ToString()
+        {
+            return "[RequestId: " + RequestId + ", ResponseContext: " + ResponseContext + ", Timestamp: " + Timestamp +
+                   "]";
+        }
     }
-  }
 }
