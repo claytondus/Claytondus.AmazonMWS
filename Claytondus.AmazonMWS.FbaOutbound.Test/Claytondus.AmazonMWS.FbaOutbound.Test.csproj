@@ -2,12 +2,11 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Claytondus.AmazonMWS.FbaOutbound\Claytondus.AmazonMWS.FbaOutbound.csproj" />
-    <ProjectReference Include="..\Claytondus.AmazonMWS.Runtime\Claytondus.AmazonMWS.Runtime.csproj" />
   </ItemGroup>
 
 </Project>

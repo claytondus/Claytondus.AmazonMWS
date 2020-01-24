@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Claytondus.AmazonMWS.Sellers\Claytondus.AmazonMWS.Sellers.csproj" />
+    <ProjectReference Include="..\Claytondus.AmazonMWS.Subscriptions\Claytondus.AmazonMWS.Subscriptions.csproj" />
+  </ItemGroup>
+
+</Project>

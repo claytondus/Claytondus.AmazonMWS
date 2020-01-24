@@ -72,7 +72,7 @@ namespace Claytondus.AmazonMWS.Products.Test {
                 // response = sample.InvokeGetLowestPricedOffersForSKU();
                 // response = sample.InvokeGetMatchingProduct();
                 // response = sample.InvokeGetMatchingProductForId();
-                // response = sample.InvokeGetMyFeesEstimate();
+                 response = sample.InvokeGetMyFeesEstimate();
                 // response = sample.InvokeGetMyPriceForASIN();
                 // response = sample.InvokeGetMyPriceForSKU();
                 // response = sample.InvokeGetProductCategoriesForASIN();
@@ -250,11 +250,32 @@ namespace Claytondus.AmazonMWS.Products.Test {
         {
             // Create a request.
             GetMyFeesEstimateRequest request = new GetMyFeesEstimateRequest();
-            string sellerId = "example";
+            string sellerId = "";
             request.SellerId = sellerId;
             string mwsAuthToken = "example";
             request.MWSAuthToken = mwsAuthToken;
-            FeesEstimateRequestList feesEstimateRequestList = new FeesEstimateRequestList();
+            FeesEstimateRequestList feesEstimateRequestList = new FeesEstimateRequestList
+            {
+                FeesEstimateRequest = new List<FeesEstimateRequest>()
+                {
+                    new FeesEstimateRequest()
+                    {
+                        MarketplaceId = "ATVPDKIKX0DER",
+                        IdType = "ASIN",
+                        IdValue = "B016W63ZYS",
+                        IsAmazonFulfilled = false,
+                        Identifier = "request1",
+                        PriceToEstimateFees = new PriceToEstimateFees()
+                        {
+                            ListingPrice = new MoneyType()
+                            {
+                                Amount = 12.99M,
+                                CurrencyCode = "USD",
+                            },
+                        }
+                    }
+                }
+            };
             request.FeesEstimateRequestList = feesEstimateRequestList;
             return this.client.GetMyFeesEstimate(request);
         }

@@ -2,8 +2,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS", "Claytondus.AmazonMWS\Claytondus.AmazonMWS.csproj", "{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.Feeds", "Claytondus.AmazonMWS.Feeds\Claytondus.AmazonMWS.Feeds.csproj", "{DCB37294-F700-44C6-A4AC-ADA76B1008C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.FbaInbound", "Claytondus.AmazonMWS.FbaInbound\Claytondus.AmazonMWS.FbaInbound.csproj", "{3214F597-25B2-401B-9BD2-8094A2A73654}"
@@ -42,16 +40,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Claytondus.AmazonMWS.FbaInv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Feeds.Test", "Claytondus.AmazonMWS.Feeds.Test\Claytondus.AmazonMWS.Feeds.Test.csproj", "{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Subscriptions", "Claytondus.AmazonMWS.Subscriptions\Claytondus.AmazonMWS.Subscriptions.csproj", "{A59F7136-0A64-4C4F-A662-6B4C125D322B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS.Subscriptions.Test", "Claytondus.AmazonMWS.Subscriptions.Test\Claytondus.AmazonMWS.Subscriptions.Test.csproj", "{2B6846D5-5CCF-4162-BEA8-C2BB96F7357B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claytondus.AmazonMWS", "Claytondus.AmazonMWS\Claytondus.AmazonMWS.csproj", "{66858C22-E7FA-43EF-AB01-F874D8B2DADB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDF8858A-229B-4A4D-93DF-BFCCC9EAB767}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCB37294-F700-44C6-A4AC-ADA76B1008C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCB37294-F700-44C6-A4AC-ADA76B1008C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCB37294-F700-44C6-A4AC-ADA76B1008C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -128,6 +128,18 @@ Global
 		{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B76667EF-8CB7-440F-97E1-1C839AEE0CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59F7136-0A64-4C4F-A662-6B4C125D322B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59F7136-0A64-4C4F-A662-6B4C125D322B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59F7136-0A64-4C4F-A662-6B4C125D322B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59F7136-0A64-4C4F-A662-6B4C125D322B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B6846D5-5CCF-4162-BEA8-C2BB96F7357B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B6846D5-5CCF-4162-BEA8-C2BB96F7357B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B6846D5-5CCF-4162-BEA8-C2BB96F7357B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B6846D5-5CCF-4162-BEA8-C2BB96F7357B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66858C22-E7FA-43EF-AB01-F874D8B2DADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66858C22-E7FA-43EF-AB01-F874D8B2DADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66858C22-E7FA-43EF-AB01-F874D8B2DADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66858C22-E7FA-43EF-AB01-F874D8B2DADB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

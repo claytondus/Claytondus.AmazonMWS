@@ -466,17 +466,17 @@ namespace Claytondus.AmazonMWS.Feeds
 
             if (config.IsSetProxyHost())
             {
-                //request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
+                request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
             }
 
-            //request.UserAgent = config.UserAgent;
+            request.UserAgent = config.UserAgent;
 
             request.Method = "POST";
-            //request.Timeout = config.RequestTimeout;
+            request.Timeout = config.RequestTimeout;
 
             request.ContentType = contentType.ToString();
 
-            //request.SendChunked = true;
+            request.SendChunked = true;
             //System.Net.ServicePointManager.Expect100Continue = false;
 
             return request;
@@ -492,13 +492,13 @@ namespace Claytondus.AmazonMWS.Feeds
 
             if (config.IsSetProxyHost())
             {
-                //request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
+                request.Proxy = new WebProxy(config.ProxyHost, config.ProxyPort);
             }
-            //request.UserAgent = config.UserAgent;
+            request.UserAgent = config.UserAgent;
             request.Method = "POST";
-            //request.Timeout = 50000;
+            request.Timeout = 50000;
             request.ContentType = "application/x-www-form-urlencoded; charset=utf-8";
-            //request.ContentLength = contentLength;
+            request.ContentLength = contentLength;
 
             return request;
         }
