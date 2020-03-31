@@ -15,6 +15,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using Claytondus.AmazonMWS.MerchantFulfillment.Model;
 
 namespace Claytondus.AmazonMWS.MerchantFulfillment.Test {
@@ -130,6 +131,10 @@ namespace Claytondus.AmazonMWS.MerchantFulfillment.Test {
             request.ShippingServiceOfferId = shippingServiceOfferId;
             string hazmatType = "example";
             request.HazmatType = hazmatType;
+            LabelFormatOptionRequest labelFormatOption = new LabelFormatOptionRequest();
+            request.LabelFormatOption = labelFormatOption;
+            List<AdditionalSellerInputs> shipmentLevelSellerInputsList = new List<AdditionalSellerInputs>();
+            request.ShipmentLevelSellerInputsList = shipmentLevelSellerInputsList;
             return client.CreateShipment(request);
         }
 

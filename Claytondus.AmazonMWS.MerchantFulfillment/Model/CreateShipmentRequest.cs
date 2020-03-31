@@ -15,6 +15,7 @@
  */
 
 
+using System.Collections.Generic;
 using Claytondus.AmazonMWS.Runtime;
 
 namespace Claytondus.AmazonMWS.MerchantFulfillment.Model
@@ -28,6 +29,9 @@ namespace Claytondus.AmazonMWS.MerchantFulfillment.Model
         private string _shippingServiceId;
         private string _shippingServiceOfferId;
         private string _hazmatType;
+        private LabelFormatOptionRequest _labelFormatOption;
+        private List<AdditionalSellerInputs> _shipmentLevelSellerInputsList;
+
 
         /// <summary>
         /// Gets and sets the SellerId property.
@@ -204,6 +208,72 @@ namespace Claytondus.AmazonMWS.MerchantFulfillment.Model
         }
 
 
+        /// <summary>
+        /// Gets and sets the LabelFormatOption property.
+        /// </summary>
+        public LabelFormatOptionRequest LabelFormatOption
+        {
+            get { return this._labelFormatOption; }
+            set { this._labelFormatOption = value; }
+        }
+
+        /// <summary>
+        /// Sets the LabelFormatOption property.
+        /// </summary>
+        /// <param name="labelFormatOption">LabelFormatOption property.</param>
+        /// <returns>this instance.</returns>
+        public CreateShipmentRequest WithLabelFormatOption(LabelFormatOptionRequest labelFormatOption)
+        {
+            this._labelFormatOption = labelFormatOption;
+            return this;
+        }
+
+        /// <summary>
+        /// Checks if LabelFormatOption property is set.
+        /// </summary>
+        /// <returns>true if LabelFormatOption property is set.</returns>
+        public bool IsSetLabelFormatOption()
+        {
+            return this._labelFormatOption != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the ShipmentLevelSellerInputsList property.
+        /// </summary>
+        public List<AdditionalSellerInputs> ShipmentLevelSellerInputsList
+        {
+            get
+            {
+                if(this._shipmentLevelSellerInputsList == null)
+                {
+                    this._shipmentLevelSellerInputsList = new List<AdditionalSellerInputs>();
+                }
+                return this._shipmentLevelSellerInputsList;
+            }
+            set { this._shipmentLevelSellerInputsList = value; }
+        }
+
+        /// <summary>
+        /// Sets the ShipmentLevelSellerInputsList property.
+        /// </summary>
+        /// <param name="shipmentLevelSellerInputsList">ShipmentLevelSellerInputsList property.</param>
+        /// <returns>this instance.</returns>
+        public CreateShipmentRequest WithShipmentLevelSellerInputsList(AdditionalSellerInputs[] shipmentLevelSellerInputsList)
+        {
+            this._shipmentLevelSellerInputsList.AddRange(shipmentLevelSellerInputsList);
+            return this;
+        }
+
+        /// <summary>
+        /// Checks if ShipmentLevelSellerInputsList property is set.
+        /// </summary>
+        /// <returns>true if ShipmentLevelSellerInputsList property is set.</returns>
+        public bool IsSetShipmentLevelSellerInputsList()
+        {
+            return this.ShipmentLevelSellerInputsList.Count > 0;
+        }
+
+
         public override void ReadFragmentFrom(IMwsReader reader)
         {
             _sellerId = reader.Read<string>("SellerId");
@@ -212,6 +282,8 @@ namespace Claytondus.AmazonMWS.MerchantFulfillment.Model
             _shippingServiceId = reader.Read<string>("ShippingServiceId");
             _shippingServiceOfferId = reader.Read<string>("ShippingServiceOfferId");
             _hazmatType = reader.Read<string>("HazmatType");
+            _labelFormatOption = reader.Read<LabelFormatOptionRequest>("LabelFormatOption");
+            _shipmentLevelSellerInputsList = reader.ReadList<AdditionalSellerInputs>("ShipmentLevelSellerInputsList", "member");
         }
 
         public override void WriteFragmentTo(IMwsWriter writer)
@@ -222,6 +294,8 @@ namespace Claytondus.AmazonMWS.MerchantFulfillment.Model
             writer.Write("ShippingServiceId", _shippingServiceId);
             writer.Write("ShippingServiceOfferId", _shippingServiceOfferId);
             writer.Write("HazmatType", _hazmatType);
+            writer.Write("LabelFormatOption", _labelFormatOption);
+            writer.WriteList("ShipmentLevelSellerInputsList", "member", _shipmentLevelSellerInputsList);
         }
 
         public override void WriteTo(IMwsWriter writer)
