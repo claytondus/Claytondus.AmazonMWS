@@ -101,7 +101,7 @@ namespace Claytondus.AmazonMWS.Products.Model
         public override void WriteFragmentTo(IMwsWriter writer)
         {
             writer.Write("CurrencyCode", _currencyCode);
-            writer.Write("Amount", _amount?.ToString("0.00", CultureInfo.InvariantCulture));
+            writer.Write("Amount", _amount?.ToString(CultureInfo.InvariantCulture));
         }
 
         public override void WriteTo(IMwsWriter writer)
