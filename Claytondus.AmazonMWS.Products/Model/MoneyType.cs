@@ -16,6 +16,7 @@
 
 
 using System;
+using System.Globalization;
 using System.Xml;
 using System.Xml.Serialization;
 using Claytondus.AmazonMWS.Runtime;
@@ -100,7 +101,7 @@ namespace Claytondus.AmazonMWS.Products.Model
         public override void WriteFragmentTo(IMwsWriter writer)
         {
             writer.Write("CurrencyCode", _currencyCode);
-            writer.Write("Amount", _amount);
+            writer.Write("Amount", _amount?.ToString(CultureInfo.InvariantCulture));
         }
 
         public override void WriteTo(IMwsWriter writer)
